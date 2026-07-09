@@ -35,6 +35,16 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "fifa",
+    type: "tv",
+    title: "FIFA",
+    logo: "/fifa.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live.inplyr.com/room/168740.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/26/index.m3u8" }
+    ]
+  },
+  {
     id: "btv",
     type: "tv",
     title: "BTV",
