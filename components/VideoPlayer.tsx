@@ -231,7 +231,7 @@ export default function VideoPlayer({
     let stallWatchdogTimer: any = null;
     let lastCurrentTime = -1;
     let stallCount = 0;
-    const MAX_NETWORK_RETRIES = 8;
+    const MAX_NETWORK_RETRIES = 6;
     const MAX_NATIVE_RETRIES = 5;
 
     // ── Stall watchdog: if video is supposed to be playing but time isn't advancing ──
@@ -250,7 +250,7 @@ export default function VideoPlayer({
           stallCount = 0;
           lastCurrentTime = video.currentTime;
         }
-      }, 8000);
+      }, 4000);
     }
 
     // ── Full HLS reload without showing error to user ──
@@ -268,16 +268,22 @@ export default function VideoPlayer({
 
       const Hls = (await import("hls.js")).default;
       hls = new Hls({
-        maxBufferLength: 60,
-        maxMaxBufferLength: 120,
-        maxBufferHole: 3,
+        maxBufferLength: 10,
+        maxMaxBufferLength: 30,
+        maxBufferHole: 0.5,
+        liveSyncDurationCount: 3,
+        liveMaxLatencyDurationCount: 6,
         enableWorker: true,
-        fragLoadingTimeOut: 30000,
-        fragLoadingMaxRetry: 6,
-        levelLoadingTimeOut: 30000,
-        levelLoadingMaxRetry: 6,
-        manifestLoadingTimeOut: 30000,
-        manifestLoadingMaxRetry: 4,
+        lowLatencyMode: true,
+        fragLoadingTimeOut: 10000,
+        fragLoadingMaxRetry: 4,
+        levelLoadingTimeOut: 10000,
+        levelLoadingMaxRetry: 4,
+        manifestLoadingTimeOut: 10000,
+        manifestLoadingMaxRetry: 3,
+        startFragPrefetch: true,
+        testBandwidth: true,
+        abrEwmaDefaultEstimate: 500000,
         xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
       });
       hlsRef.current = hls;
@@ -302,7 +308,7 @@ export default function VideoPlayer({
     }
 
     // ── Schedule a visible countdown then auto-reconnect ──
-    function scheduleVisibleReconnect(delaySec = 10) {
+    function scheduleVisibleReconnect(delaySec = 5) {
       clearInterval(reconnectCountdownRef.current);
       setReconnectCountdown(delaySec);
       let remaining = delaySec;
@@ -329,8 +335,8 @@ export default function VideoPlayer({
         if (networkRetryCount <= MAX_NETWORK_RETRIES) {
           setBuffering(true);
           setError(null);
-          // Exponential backoff: 1s, 2s, 4s, 8s... capped at 16s
-          const delay = Math.min(1000 * Math.pow(2, networkRetryCount - 1), 16000);
+          // Exponential backoff: 1s, 2s, 4s... capped at 8s
+          const delay = Math.min(1000 * Math.pow(2, networkRetryCount - 1), 8000);
           setTimeout(() => {
             if (hls) hls.startLoad();
           }, delay);
@@ -340,7 +346,7 @@ export default function VideoPlayer({
         // All network retries exhausted — try full reconnect
         console.warn("[Live] Network retries exhausted, attempting full reconnect...");
         networkRetryCount = 0;
-        scheduleVisibleReconnect(10);
+        scheduleVisibleReconnect(5);
         return;
       }
 
@@ -366,13 +372,13 @@ export default function VideoPlayer({
         // All media recovery stages failed — full reconnect
         console.warn("[Live] All media recovery failed, doing full reconnect...");
         mediaRecoveryStage = 0;
-        scheduleVisibleReconnect(10);
+        scheduleVisibleReconnect(5);
         return;
       }
 
       // Unknown fatal error — full reconnect silently
       console.warn("[Live] Unknown fatal error, reconnecting:", data.details);
-      scheduleVisibleReconnect(10);
+      scheduleVisibleReconnect(5);
     }
 
     // ── Native video element error handler (Safari / iOS) with auto-retry ──
@@ -459,16 +465,22 @@ export default function VideoPlayer({
 
       if (Hls.isSupported()) {
         hls = new Hls({
-          maxBufferLength: 60,
-          maxMaxBufferLength: 120,
-          maxBufferHole: 3,
+          maxBufferLength: 10,
+          maxMaxBufferLength: 30,
+          maxBufferHole: 0.5,
+          liveSyncDurationCount: 3,
+          liveMaxLatencyDurationCount: 6,
           enableWorker: true,
-          fragLoadingTimeOut: 30000,
-          fragLoadingMaxRetry: 6,
-          levelLoadingTimeOut: 30000,
-          levelLoadingMaxRetry: 6,
-          manifestLoadingTimeOut: 30000,
-          manifestLoadingMaxRetry: 4,
+          lowLatencyMode: true,
+          fragLoadingTimeOut: 10000,
+          fragLoadingMaxRetry: 4,
+          levelLoadingTimeOut: 10000,
+          levelLoadingMaxRetry: 4,
+          manifestLoadingTimeOut: 10000,
+          manifestLoadingMaxRetry: 3,
+          startFragPrefetch: true,
+          testBandwidth: true,
+          abrEwmaDefaultEstimate: 500000,
           xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
         });
         hlsRef.current = hls;
