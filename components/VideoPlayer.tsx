@@ -165,8 +165,17 @@ export default function VideoPlayer({
   const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [showSwipeHint, setShowSwipeHint] = useState(false);
   const touchStartYRef = useRef(0);
   const touchCurrentYRef = useRef(0);
+
+  useEffect(() => {
+    if (isMobileFullscreen) {
+      setShowSwipeHint(true);
+      const timer = setTimeout(() => setShowSwipeHint(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobileFullscreen]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartYRef.current = e.touches[0].clientY;
@@ -1231,7 +1240,7 @@ export default function VideoPlayer({
           >
             {/* Handle Area */}
             <div 
-              className="h-12 flex flex-col justify-center items-center cursor-pointer shrink-0"
+              className={`h-12 flex flex-col justify-center items-center cursor-pointer shrink-0 transition-opacity duration-1000 ${isDrawerOpen || controlsVisible || showSwipeHint ? 'opacity-100' : 'opacity-0'}`}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -1239,7 +1248,7 @@ export default function VideoPlayer({
             >
               <div className="w-12 h-1.5 bg-white/30 rounded-full" />
               {!isDrawerOpen && (
-                <span className="text-[10px] text-white/50 font-bold uppercase mt-1 tracking-widest">Swipe Up</span>
+                <span className={`text-[10px] text-white/80 font-bold uppercase mt-1 tracking-widest transition-opacity duration-1000 ${showSwipeHint ? 'opacity-100' : 'opacity-0'}`}>Swipe Up</span>
               )}
             </div>
 
