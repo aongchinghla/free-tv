@@ -164,16 +164,37 @@ export default function VideoPlayer({
   const [nativeFullscreen, setNativeFullscreen] = useState(false);
   const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const touchStartYRef = useRef(0);
+  const touchCurrentYRef = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartYRef.current = e.touches[0].clientY;
+    touchCurrentYRef.current = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchCurrentYRef.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartYRef.current - touchCurrentYRef.current;
+    if (diff > 50) {
+      setIsDrawerOpen(true);
+    } else if (diff < -50) {
+      setIsDrawerOpen(false);
+    }
+  };
 
   const isFullscreen = nativeFullscreen || isMobileFullscreen;
 
   useEffect(() => {
-    const checkMobile = () => {
+    const checkViewport = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+    return () => window.removeEventListener("resize", checkViewport);
   }, []);
 
   useEffect(() => {
@@ -714,7 +735,7 @@ export default function VideoPlayer({
     setProgress((video.currentTime / dur) * 100);
   }
 
-  function seek(event) {
+  function seek(event: React.ChangeEvent<HTMLInputElement>) {
     const video = videoRef.current;
     if (!video || !video.duration || !isFinite(video.duration)) return;
 
@@ -726,17 +747,31 @@ export default function VideoPlayer({
     }
   }
 
-  function toggleFullscreen() {
-    if (isMobile) {
-      setIsMobileFullscreen(!isMobileFullscreen);
-    } else {
-      const shell = shellRef.current;
-      if (!shell) return;
+  async function toggleFullscreen() {
+    const shell = shellRef.current;
+    if (!shell) return;
 
+    if (document.fullscreenElement || isMobileFullscreen) {
       if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        shell.requestFullscreen?.();
+        await document.exitFullscreen().catch(e => console.warn(e));
+      }
+      try {
+        if (screen.orientation && (screen.orientation as any).unlock) {
+          (screen.orientation as any).unlock();
+        }
+      } catch (e) { console.warn(e); }
+      if (isMobile) setIsMobileFullscreen(false);
+    } else {
+      if (isMobile) setIsMobileFullscreen(true);
+      try {
+        if (shell.requestFullscreen) {
+          await shell.requestFullscreen();
+          if (isMobile && screen.orientation && (screen.orientation as any).lock) {
+            await (screen.orientation as any).lock("landscape").catch((e: any) => console.warn(e));
+          }
+        }
+      } catch (e) {
+        console.warn(e);
       }
     }
   }
@@ -786,7 +821,7 @@ export default function VideoPlayer({
   }
 
   const containerClasses = isMobileFullscreen
-    ? "fixed inset-0 z-[9999] bg-void-950 flex flex-col w-full h-full overflow-y-auto"
+    ? "fixed inset-0 z-[9999] bg-black flex flex-col justify-center w-full h-full overflow-hidden"
     : `relative w-full overflow-hidden bg-black shadow-2xl shadow-black/50${!controlsVisible ? " cursor-none" : ""}`;
 
   const containerStyle = isMobileFullscreen
@@ -890,7 +925,7 @@ export default function VideoPlayer({
       className={containerClasses}
       style={containerStyle}
     >
-      <div className={isMobileFullscreen ? "relative w-full aspect-video shrink-0 bg-black sticky top-0 z-30 shadow-lg" : "relative w-full h-full"}>
+      <div className={isMobileFullscreen ? "absolute inset-0 bg-black z-30 overflow-hidden" : "relative w-full h-full"}>
         <video
           ref={videoRef}
           autoPlay
@@ -905,7 +940,7 @@ export default function VideoPlayer({
             setMuted(event.currentTarget.muted);
             setVolume(event.currentTarget.volume);
           }}
-          className="absolute inset-0 h-full w-full object-contain"
+          className={isMobileFullscreen ? "w-full h-full object-contain" : "absolute inset-0 h-full w-full object-contain"}
         />
 
         {poster && loading && !error && (
@@ -1181,112 +1216,145 @@ export default function VideoPlayer({
       </div>
 
       {isMobileFullscreen && (
-        <div className="flex-1 bg-void-950 p-4 space-y-6 overflow-y-auto custom-scrollbar">
-          {/* Active Channel Details */}
-          <div className="flex items-center justify-between border-b border-white/5 pb-4">
-            <div className="flex items-center gap-3">
-              {poster && (
-                <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded bg-white p-1">
-                  <img
-                    src={poster}
-                    alt=""
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </span>
-              )}
-              <div>
-                <h2 className="font-display text-lg tracking-wide text-white uppercase">
-                  {channels && activeChannelIndex !== undefined && channels[activeChannelIndex]
-                    ? channels[activeChannelIndex].title
-                    : "Live Stream"}
-                </h2>
-                <p className="text-xs text-white/50">
-                  {servers[activeIndex] ? `Playing: ${servers[activeIndex].name}` : ""}
-                </p>
-              </div>
-            </div>
-            <span className="flex items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase text-white">
-              <EyeIcon />
-              {formatViewerCount(liveViewers)} watching
-            </span>
-          </div>
+        <>
+          {/* Drawer Overlay */}
+          {isDrawerOpen && (
+            <div 
+              className="absolute inset-0 bg-black/60 z-40 transition-opacity"
+              onClick={() => setIsDrawerOpen(false)}
+            />
+          )}
 
-          {/* Servers List */}
-          {servers.length > 1 && (
-            <div className="space-y-2">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
-                Select Server
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {servers.map((server, index) => {
-                  const isActive = index === activeIndex;
-                  return (
-                    <button
-                      key={server.name}
-                      type="button"
-                      onClick={() => onSelectServer?.(index)}
-                      className={`relative rounded-lg px-4 py-2 font-display text-sm tracking-wide transition border ${
-                        isActive
-                          ? "bg-floodlight-500 border-floodlight-500 text-void-950 font-bold"
-                          : "border-white/10 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
-                      }`}
-                    >
-                      {server.name}
-                      {server.quality && (
-                        <span
-                          className={`ml-1.5 rounded px-1 py-0.5 text-[10px] font-semibold ${
+          {/* Swipe-up Drawer */}
+          <div 
+            className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : 'translate-y-[calc(100%-48px)] h-[75vh]'}`}
+          >
+            {/* Handle Area */}
+            <div 
+              className="h-12 flex flex-col justify-center items-center cursor-pointer shrink-0"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+            >
+              <div className="w-12 h-1.5 bg-white/30 rounded-full" />
+              {!isDrawerOpen && (
+                <span className="text-[10px] text-white/50 font-bold uppercase mt-1 tracking-widest">Swipe Up</span>
+              )}
+            </div>
+
+            {/* Scrollable Content */}
+            <div className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10">
+              {/* Active Channel Details */}
+              <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                <div className="flex items-center gap-3">
+                  {poster && (
+                    <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded bg-white p-1">
+                      <img
+                        src={poster}
+                        alt=""
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </span>
+                  )}
+                  <div>
+                    <h2 className="font-display text-lg tracking-wide text-white uppercase">
+                      {channels && activeChannelIndex !== undefined && channels[activeChannelIndex]
+                        ? channels[activeChannelIndex].title
+                        : "Live Stream"}
+                    </h2>
+                    <p className="text-xs text-white/50">
+                      {servers[activeIndex] ? `Playing: ${servers[activeIndex].name}` : ""}
+                    </p>
+                  </div>
+                </div>
+                <span className="flex items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase text-white">
+                  <EyeIcon />
+                  {formatViewerCount(liveViewers)} watching
+                </span>
+              </div>
+
+              {/* Servers List */}
+              {servers.length > 1 && (
+                <div className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
+                    Select Server
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {servers.map((server, index) => {
+                      const isActive = index === activeIndex;
+                      return (
+                        <button
+                          key={server.name}
+                          type="button"
+                          onClick={() => onSelectServer?.(index)}
+                          className={`relative rounded-lg px-4 py-2 font-display text-sm tracking-wide transition border ${
                             isActive
-                              ? "bg-void-950/20 text-void-950"
-                              : "bg-white/10 text-white/40"
+                              ? "bg-floodlight-500 border-floodlight-500 text-void-950 font-bold"
+                              : "border-white/10 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
                           }`}
                         >
-                          {server.quality}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+                          {server.name}
+                          {server.quality && (
+                            <span
+                              className={`ml-1.5 rounded px-1 py-0.5 text-[10px] font-semibold ${
+                                isActive
+                                  ? "bg-void-950/20 text-void-950"
+                                  : "bg-white/10 text-white/40"
+                              }`}
+                            >
+                              {server.quality}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
-          {/* Channels List */}
-          {channels && channels.length > 0 && (
-            <div className="space-y-3">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
-                Switch Channel
-              </h3>
-              <div className="grid grid-cols-2 gap-2 pb-6 sm:grid-cols-3">
-                {channels.map((channel, index) => {
-                  const isActive = index === activeChannelIndex;
-                  return (
-                    <button
-                      key={channel.id}
-                      type="button"
-                      onClick={() => onSelectChannel?.(index)}
-                      className={`flex items-center gap-2.5 rounded-lg border p-2 text-left transition ${
-                        isActive
-                          ? "border-floodlight-500 bg-floodlight-500/15 text-white"
-                          : "border-white/5 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
-                      }`}
-                    >
-                      <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded bg-white p-0.5">
-                        <img
-                          src={channel.logo}
-                          alt=""
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </span>
-                      <span className="font-display text-xs tracking-wide truncate">
-                        {channel.title}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
+              {/* Channels List */}
+              {channels && channels.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
+                    Switch Channel
+                  </h3>
+                  <div className="grid grid-cols-2 gap-2 pb-6 sm:grid-cols-3">
+                    {channels.map((channel, index) => {
+                      const isActive = index === activeChannelIndex;
+                      return (
+                        <button
+                          key={channel.id}
+                          type="button"
+                          onClick={() => {
+                            onSelectChannel?.(index);
+                            setIsDrawerOpen(false); // Auto-close drawer on channel select
+                          }}
+                          className={`flex items-center gap-2.5 rounded-lg border p-2 text-left transition ${
+                            isActive
+                              ? "border-floodlight-500 bg-floodlight-500/15 text-white"
+                              : "border-white/5 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
+                          }`}
+                        >
+                          <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded bg-white p-0.5">
+                            <img
+                              src={channel.logo}
+                              alt=""
+                              className="max-h-full max-w-full object-contain"
+                            />
+                          </span>
+                          <span className="font-display text-xs tracking-wide truncate">
+                            {channel.title}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </div>
+        </>
       )}
     </div>
   </>
