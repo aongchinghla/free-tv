@@ -26,6 +26,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "fox-sport",
+    type: "tv",
+    title: "FOX Sport",
+    logo: "/Fox_sport.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports720p.m3u8" }
+    ]
+  },
+  {
     id: "somoy-tv",
     type: "tv",
     title: "SOMOY TV",
@@ -37,7 +46,7 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "t-sportshd",
+    id: "t-sports-hd",
     type: "tv",
     title: "T-Sports HD",
     logo: "/T_Sports_logo.webp",
@@ -49,13 +58,34 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "united-sports",
+    id: "win-sports",
     type: "tv",
-    title: "United Sports HD",
+    title: "Win Sports",
+    logo: "/wiin.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://181.78.71.71:18000/play/a03p/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.78.211.244:8005/play/a0am/index.m3u8" },
+      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://181.78.8.199:8000/play/a06v/index.m3u8" }
+    ]
+  },
+  {
+    id: "caze-tv",
+    type: "tv",
+    title: "Caze TV",
+    logo: "/cazetv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
+    ]
+  },
+  {
+    id: "dsports",
+    type: "tv",
+    title: "DSports HD",
     logo: "/united.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a0f8/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://flkmzyq9.megogo.xyz/iptv/YSWL6KZU93STS7/2505/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://190.108.83.69:8000/play/a05w/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.64.27.65:8000/play/a0dq/index.m3u8" }
     ]
   },
   {
@@ -79,22 +109,14 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "fox-sport",
-    type: "tv",
-    title: "FOX Sport",
-    logo: "/Fox_sport.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://84.17.50.102/fox/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "http://84.17.50.102/fox/index.m3u8" }
-    ]
-  },
-  {
     id: "telemundo",
     type: "tv",
     title: "Telemundo",
     logo: "https://assets.football-logos.cc/logos/tournaments/1500x1500/fifa-world-cup-2026--white.10e0b37b.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master_720.m3u8" }
+
     ]
   },
   {
@@ -456,6 +478,15 @@ const tvlinks: TVChannel[] = [
     logo: "/z-sonarbangla.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8" }
+    ]
+  },
+  {
+    id: "star-jalsha-hd",
+    type: "tv",
+    title: "Star jalsha HD",
+    logo: "/star-jalsha-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8" }
     ]
   },
   {
