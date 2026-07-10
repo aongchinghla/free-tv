@@ -327,7 +327,7 @@ export default function VideoPlayer({
         setLoading(false);
         setReconnecting(false);
         setReconnectCountdown(0);
-        video.play().catch(() => {});
+        video.play().catch(() => { });
       });
 
       hls.on(Hls.Events.ERROR, (_event: any, data: any) => {
@@ -431,7 +431,7 @@ export default function VideoPlayer({
         video.load();
         video.src = currentSrc;
         video.load();
-        video.play().catch(() => {});
+        video.play().catch(() => { });
       }, 3000);
     };
 
@@ -550,7 +550,7 @@ export default function VideoPlayer({
       video.removeEventListener("playing", handlePlaying);
       video.removeEventListener("stalled", handleStalled);
       video.removeEventListener("error", handleNativeError);
-      video.removeEventListener("loadedmetadata", () => {});
+      video.removeEventListener("loadedmetadata", () => { });
 
       if (hlsRef.current) {
         hlsRef.current.destroy();
@@ -723,15 +723,14 @@ export default function VideoPlayer({
 
     const dur = video.duration;
 
-    // Live stream: duration is Infinity or NaN
     if (!dur || !isFinite(dur)) {
       setIsLive(true);
-      // Slowly animate the bar forward to indicate live playback is running
+
       if (!video.paused) {
         if (liveStartTimeRef.current === null) {
           liveStartTimeRef.current = Date.now();
         }
-        // Fill to ~95% over 5 minutes, then stay there
+
         const elapsed = (Date.now() - liveStartTimeRef.current) / 1000;
         const pseudo = Math.min(95, (elapsed / 300) * 95);
         setProgress(pseudo);
@@ -803,7 +802,6 @@ export default function VideoPlayer({
       }
     }
 
-    // 2. For native text tracks (Safari / iOS)
     if (video.textTracks) {
       for (let i = 0; i < video.textTracks.length; i++) {
         video.textTracks[i].mode = nextEnabled ? "showing" : "disabled";
@@ -838,7 +836,7 @@ export default function VideoPlayer({
 
   return (
     <>
-    <style>{`
+      <style>{`
       .vol-slider {
         -webkit-appearance: none;
         appearance: none;
@@ -925,447 +923,434 @@ export default function VideoPlayer({
         scrollbar-width: none;
       }
     `}</style>
-    <div
-      ref={shellRef}
-      onMouseMove={showControlsTemporarily}
-      onTouchStart={showControlsTemporarily}
-      onMouseLeave={() => setControlsVisible(false)}
-      className={containerClasses}
-      style={containerStyle}
-    >
-      <div className={isMobileFullscreen ? "absolute inset-0 bg-black z-30 overflow-hidden" : "relative w-full h-full"}>
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          muted={muted}
-          poster={poster}
-          onClick={handleVideoClick}
-          onPlay={() => setPaused(false)}
-          onPause={() => setPaused(true)}
-          onTimeUpdate={updateProgress}
-          onVolumeChange={(event) => {
-            setMuted(event.currentTarget.muted);
-            setVolume(event.currentTarget.volume);
-          }}
-          className={isMobileFullscreen ? "w-full h-full object-contain" : "absolute inset-0 h-full w-full object-contain"}
-        />
+      <div
+        ref={shellRef}
+        onMouseMove={showControlsTemporarily}
+        onTouchStart={showControlsTemporarily}
+        onMouseLeave={() => setControlsVisible(false)}
+        className={containerClasses}
+        style={containerStyle}
+      >
+        <div className={isMobileFullscreen ? "absolute inset-0 bg-black z-30 overflow-hidden" : "relative w-full h-full"}>
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            muted={muted}
+            poster={poster}
+            onClick={handleVideoClick}
+            onPlay={() => setPaused(false)}
+            onPause={() => setPaused(true)}
+            onTimeUpdate={updateProgress}
+            onVolumeChange={(event) => {
+              setMuted(event.currentTarget.muted);
+              setVolume(event.currentTarget.volume);
+            }}
+            className={isMobileFullscreen ? "w-full h-full object-contain" : "absolute inset-0 h-full w-full object-contain"}
+          />
 
-        {poster && loading && !error && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black">
-            <img
-              src={poster}
-              alt=""
-              className="max-h-44 max-w-[55%] object-contain opacity-80"
-            />
+          {poster && loading && !error && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black">
+              <img
+                src={poster}
+                alt=""
+                className="max-h-44 max-w-[55%] object-contain opacity-80"
+              />
+            </div>
+          )}
+
+          <div
+            className={`pointer-events-none absolute left-1/2 top-3 flex -translate-x-1/2 items-center rounded-full border border-white/20 bg-white/15 p-0.5 shadow-xl shadow-black/30 backdrop-blur-md transition-opacity duration-300 ${!controlsVisible ? "opacity-0" : "opacity-100"
+              }`}
+          >
+            <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase text-white sm:px-4 sm:py-2 sm:text-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-signal-500 sm:h-2 sm:w-2" />
+              Live
+            </span>
+            <span className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase text-white sm:px-4 sm:py-2 sm:text-xs">
+              <EyeIcon />
+              {formatViewerCount(liveViewers)} watching
+            </span>
           </div>
-        )}
 
-        <div
-          className={`pointer-events-none absolute left-1/2 top-3 flex -translate-x-1/2 items-center rounded-full border border-white/20 bg-white/15 p-0.5 shadow-xl shadow-black/30 backdrop-blur-md transition-opacity duration-300 ${!controlsVisible ? "opacity-0" : "opacity-100"
-            }`}
-        >
-          <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase text-white sm:px-4 sm:py-2 sm:text-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal-500 sm:h-2 sm:w-2" />
-            Live
-          </span>
-          <span className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase text-white sm:px-4 sm:py-2 sm:text-xs">
-            <EyeIcon />
-            {formatViewerCount(liveViewers)} watching
-          </span>
+          {isMobileFullscreen && (
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              className="absolute left-3 top-3 z-40 grid h-8 w-8 place-items-center rounded-full bg-black/60 text-white shadow-md backdrop-blur-sm transition hover:bg-black/80 active:scale-95"
+              aria-label="Exit fullscreen"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 12H5" />
+                <path d="M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+
+          {servers.length > 1 && !isMobileFullscreen && (
+            <div className={`absolute bottom-14 left-3 right-3 z-20 flex items-center justify-center gap-1 rounded-full bg-black/45 p-1 backdrop-blur-sm sm:bottom-[5.5rem] sm:left-1/2 sm:right-auto sm:-translate-x-1/2 overflow-x-auto scrollbar-none whitespace-nowrap transition-opacity duration-300 ${!controlsVisible ? "pointer-events-none opacity-0" : "opacity-100"}`}>
+              {servers.map((server, index) => {
+                const isActive = index === activeIndex;
+                return (
+                  <button
+                    key={server.name}
+                    type="button"
+                    onClick={() => onSelectServer?.(index)}
+                    className={`relative flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-bold text-white transition sm:min-w-20 sm:px-5 sm:py-2.5 sm:text-xs ${isActive
+                      ? "bg-white/25 shadow-inner ring-1 ring-white/55"
+                      : "hover:bg-white/10"
+                      }`}
+                  >
+                    {server.name}
+                    {server.quality && (
+                      <span className="rounded bg-cyan-400 px-1.5 py-0.5 text-[8px] font-black leading-none text-void-950">
+                        {server.quality}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {loading && !reconnecting && !error && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-void-950/35">
+              <div className="flex flex-col items-center gap-3">
+                <span className="h-9 w-9 animate-spin rounded-full border-2 border-white/20 border-t-floodlight-500" />
+              </div>
+            </div>
+          )}
+
+
+          {reconnecting && !error && (
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60">
+              <div className="flex flex-col items-center gap-3 text-center">
+                <span className="h-9 w-9 animate-spin rounded-full border-2 border-white/20 border-t-yellow-400" />
+                <p className="text-xs font-semibold text-white/70">Reconnecting stream…</p>
+              </div>
+            </div>
+          )}
+
+          {error && (
+            <div className="absolute inset-0 flex items-center justify-center bg-void-950/90 px-6 text-center">
+              <div className="max-w-md">
+                <p className="mb-1 font-display text-xl text-signal-500">
+                  Connection Lost
+                </p>
+                <p className="text-sm text-white/60">{error}</p>
+
+                {/* Auto-reconnect countdown */}
+                {reconnectCountdown > 0 && (
+                  <p className="mt-3 text-xs text-yellow-400">
+                    Reconnecting in <span className="font-bold">{reconnectCountdown}s</span>…
+                  </p>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    clearInterval(reconnectCountdownRef.current);
+                    setError(null);
+                    setReconnectCountdown(0);
+                    if ((window as any).__liveRetry) (window as any).__liveRetry();
+                  }}
+                  className="mt-4 rounded-full bg-yellow-500 px-5 py-2 text-sm font-bold text-black transition hover:bg-yellow-400 active:scale-95"
+                >
+                  Retry Now
+                </button>
+
+                {typeof window !== "undefined" && window.location.protocol === "https:" && src.startsWith("http://") && (
+                  <p className="mt-4 rounded-lg bg-yellow-500/10 p-3 text-xs text-yellow-400 border border-yellow-500/20">
+                    <strong>Security Block:</strong> This channel uses an insecure HTTP link (http://) which is blocked by the browser on HTTPS sites. Please try another server or enable &quot;Insecure Content&quot; in your browser site settings.
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          <div
+            className={`absolute bottom-3 left-1/2 z-20 flex w-[calc(100%-1.5rem)] -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 text-white shadow-2xl shadow-black/40 backdrop-blur-md transition-opacity duration-300 sm:bottom-5 sm:w-[min(55rem,calc(100%-3rem))] sm:gap-4 sm:px-6 sm:py-3 ${!controlsVisible ? "pointer-events-none opacity-0" : "opacity-100"
+              }`}
+          >
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm font-black transition hover:bg-white/10 sm:h-8 sm:w-8"
+              aria-label={paused ? "Play" : "Pause"}
+            >
+              {paused ? <PlayIcon /> : <PauseIcon />}
+            </button>
+            <div className="group relative flex items-center">
+              <button
+                type="button"
+                onClick={toggleMute}
+                className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-xs font-black transition hover:bg-white/10 sm:h-8 sm:w-8"
+                aria-label={muted ? "Unmute" : "Mute"}
+              >
+                <VolumeIcon muted={muted} />
+              </button>
+              {showVolPct && (
+                <span
+                  className="pointer-events-none absolute -top-7 rounded-md bg-black/80 px-1.5 py-0.5 text-[10px] font-bold text-white shadow"
+                  style={{ left: `calc(1.75rem + ${(muted ? 0 : volume) * 80}px)`, transform: "translateX(-50%)" }}
+                >
+                  {Math.round((muted ? 0 : volume) * 100)}%
+                </span>
+              )}
+              <div className="w-0 overflow-hidden transition-all duration-200 ease-in-out group-hover:w-20 sm:group-hover:w-24">
+                <div className="relative" style={{ width: "80px", height: "20px" }}>
+
+                  <div
+                    className="pointer-events-none absolute left-0 right-0 rounded-full"
+                    style={{ top: "50%", transform: "translateY(-50%)", height: "4px", background: "rgba(255,255,255,0.25)" }}
+                  />
+
+                  <div
+                    className="pointer-events-none absolute left-0 rounded-full"
+                    style={{
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      height: "4px",
+                      width: `calc(${(muted ? 0 : volume) * 100}% - 6px)`,
+                      minWidth: "0px",
+                      background: "linear-gradient(90deg, #FFB800, #FFD700, #FFF176)",
+                      boxShadow: "0 0 6px rgba(255,215,0,0.55)",
+                      transition: "width 0.1s ease",
+                    }}
+                  />
+
+                  <div
+                    className="pointer-events-none absolute rounded-full"
+                    style={{
+                      top: "50%",
+                      left: `clamp(6px, calc(${(muted ? 0 : volume) * 100}%), calc(100% - 6px))`,
+                      transform: "translate(-50%, -50%)",
+                      width: "12px",
+                      height: "12px",
+                      background: "#FFD700",
+                      boxShadow: "0 0 7px rgba(255,215,0,0.85)",
+                      transition: "left 0.1s ease",
+                    }}
+                  />
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.02"
+                    value={muted ? 0 : volume}
+                    onChange={handleVolumeChange}
+                    className="absolute inset-0 w-full opacity-0"
+                    aria-label="Volume"
+                    style={{ height: "20px", cursor: "pointer" }}
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={toggleCC}
+              className={`hidden h-7 w-7 shrink-0 place-items-center rounded-full transition hover:bg-white/10 sm:grid sm:h-8 sm:w-8 ${ccEnabled ? "text-cyan-400 bg-white/10" : ""
+                }`}
+              aria-label="Captions"
+            >
+              <CaptionsIcon />
+            </button>
+            <button
+              type="button"
+              onClick={togglePictureInPicture}
+              className={`hidden h-7 w-7 shrink-0 place-items-center rounded-full transition hover:bg-white/10 sm:grid sm:h-8 sm:w-8 ${isPip ? "text-cyan-400 bg-white/10" : ""
+                }`}
+              aria-label="Mini player"
+            >
+              <MiniPlayerIcon />
+            </button>
+            <div className="relative min-w-0 flex-1" style={{ height: "20px" }}>
+
+              <div
+                className="pointer-events-none absolute left-0 right-0 rounded-full"
+                style={{ top: "50%", transform: "translateY(-50%)", height: "4px", background: "rgba(255,255,255,0.25)" }}
+              />
+
+              <div
+                className="pointer-events-none absolute left-0 rounded-full"
+                style={{
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  height: "4px",
+                  width: `${progress}%`,
+                  background: "linear-gradient(90deg, #FFB800, #FFD700, #FFF176)",
+                  boxShadow: "0 0 6px rgba(255,215,0,0.55)",
+                  transition: isLive ? "width 1s linear" : "none",
+                }}
+              />
+              <div
+                className="pointer-events-none absolute rounded-full"
+                style={{
+                  top: "50%",
+                  left: `${progress}%`,
+                  transform: "translate(-50%, -50%)",
+                  width: "13px",
+                  height: "13px",
+                  background: "#FFD700",
+                  boxShadow: "0 0 8px rgba(255,215,0,0.9)",
+                  transition: isLive ? "left 1s linear" : "none",
+                }}
+              />
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={progress}
+                onChange={seek}
+                className="seek-bar absolute inset-0 w-full opacity-0"
+                aria-label="Playback progress"
+                style={{ height: "20px", cursor: "pointer" }}
+              />
+            </div>
+
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              className="grid h-7 w-7 shrink-0 place-items-center rounded-full transition hover:bg-white/10 sm:h-8 sm:w-8"
+              aria-label="Fullscreen"
+            >
+              <FullscreenIcon />
+            </button>
+          </div>
         </div>
 
         {isMobileFullscreen && (
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            className="absolute left-3 top-3 z-40 grid h-8 w-8 place-items-center rounded-full bg-black/60 text-white shadow-md backdrop-blur-sm transition hover:bg-black/80 active:scale-95"
-            aria-label="Exit fullscreen"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5" />
-              <path d="M12 19l-7-7 7-7" />
-            </svg>
-          </button>
-        )}
-
-        {servers.length > 1 && !isMobileFullscreen && (
-          <div className={`absolute bottom-14 left-3 right-3 z-20 flex items-center justify-center gap-1 rounded-full bg-black/45 p-1 backdrop-blur-sm sm:bottom-[5.5rem] sm:left-1/2 sm:right-auto sm:-translate-x-1/2 overflow-x-auto scrollbar-none whitespace-nowrap transition-opacity duration-300 ${!controlsVisible ? "pointer-events-none opacity-0" : "opacity-100"}`}>
-            {servers.map((server, index) => {
-              const isActive = index === activeIndex;
-              return (
-                <button
-                  key={server.name}
-                  type="button"
-                  onClick={() => onSelectServer?.(index)}
-                  className={`relative flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-bold text-white transition sm:min-w-20 sm:px-5 sm:py-2.5 sm:text-xs ${isActive
-                    ? "bg-white/25 shadow-inner ring-1 ring-white/55"
-                    : "hover:bg-white/10"
-                    }`}
-                >
-                  {server.name}
-                  {server.quality && (
-                    <span className="rounded bg-cyan-400 px-1.5 py-0.5 text-[8px] font-black leading-none text-void-950">
-                      {server.quality}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {loading && !reconnecting && !error && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-void-950/35">
-            <div className="flex flex-col items-center gap-3">
-              <span className="h-9 w-9 animate-spin rounded-full border-2 border-white/20 border-t-floodlight-500" />
-            </div>
-          </div>
-        )}
-
-        {/* Reconnecting overlay — shown during silent background reconnect */}
-        {reconnecting && !error && (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/60">
-            <div className="flex flex-col items-center gap-3 text-center">
-              <span className="h-9 w-9 animate-spin rounded-full border-2 border-white/20 border-t-yellow-400" />
-              <p className="text-xs font-semibold text-white/70">Reconnecting stream…</p>
-            </div>
-          </div>
-        )}
-
-        {error && (
-          <div className="absolute inset-0 flex items-center justify-center bg-void-950/90 px-6 text-center">
-            <div className="max-w-md">
-              <p className="mb-1 font-display text-xl text-signal-500">
-                Connection Lost
-              </p>
-              <p className="text-sm text-white/60">{error}</p>
-
-              {/* Auto-reconnect countdown */}
-              {reconnectCountdown > 0 && (
-                <p className="mt-3 text-xs text-yellow-400">
-                  Reconnecting in <span className="font-bold">{reconnectCountdown}s</span>…
-                </p>
-              )}
-
-              <button
-                type="button"
-                onClick={() => {
-                  clearInterval(reconnectCountdownRef.current);
-                  setError(null);
-                  setReconnectCountdown(0);
-                  if ((window as any).__liveRetry) (window as any).__liveRetry();
-                }}
-                className="mt-4 rounded-full bg-yellow-500 px-5 py-2 text-sm font-bold text-black transition hover:bg-yellow-400 active:scale-95"
-              >
-                Retry Now
-              </button>
-
-              {typeof window !== "undefined" && window.location.protocol === "https:" && src.startsWith("http://") && (
-                <p className="mt-4 rounded-lg bg-yellow-500/10 p-3 text-xs text-yellow-400 border border-yellow-500/20">
-                  <strong>Security Block:</strong> This channel uses an insecure HTTP link (http://) which is blocked by the browser on HTTPS sites. Please try another server or enable &quot;Insecure Content&quot; in your browser site settings.
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-
-        <div
-          className={`absolute bottom-3 left-1/2 z-20 flex w-[calc(100%-1.5rem)] -translate-x-1/2 items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-2 text-white shadow-2xl shadow-black/40 backdrop-blur-md transition-opacity duration-300 sm:bottom-5 sm:w-[min(55rem,calc(100%-3rem))] sm:gap-4 sm:px-6 sm:py-3 ${!controlsVisible ? "pointer-events-none opacity-0" : "opacity-100"
-            }`}
-        >
-          <button
-            type="button"
-            onClick={togglePlay}
-            className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-sm font-black transition hover:bg-white/10 sm:h-8 sm:w-8"
-            aria-label={paused ? "Play" : "Pause"}
-          >
-            {paused ? <PlayIcon /> : <PauseIcon />}
-          </button>
-          <div className="group relative flex items-center">
-            <button
-              type="button"
-              onClick={toggleMute}
-              className="grid h-7 w-7 shrink-0 place-items-center rounded-full text-xs font-black transition hover:bg-white/10 sm:h-8 sm:w-8"
-              aria-label={muted ? "Unmute" : "Mute"}
-            >
-              <VolumeIcon muted={muted} />
-            </button>
-            {showVolPct && (
-              <span
-                className="pointer-events-none absolute -top-7 rounded-md bg-black/80 px-1.5 py-0.5 text-[10px] font-bold text-white shadow"
-                style={{ left: `calc(1.75rem + ${(muted ? 0 : volume) * 80}px)`, transform: "translateX(-50%)" }}
-              >
-                {Math.round((muted ? 0 : volume) * 100)}%
-              </span>
+          <>
+            {isDrawerOpen && (
+              <div
+                className="absolute inset-0 bg-black/60 z-40 transition-opacity"
+                onClick={() => setIsDrawerOpen(false)}
+              />
             )}
-            <div className="w-0 overflow-hidden transition-all duration-200 ease-in-out group-hover:w-20 sm:group-hover:w-24">
-              <div className="relative" style={{ width: "80px", height: "20px" }}>
-                {/* Track background */}
-                <div
-                  className="pointer-events-none absolute left-0 right-0 rounded-full"
-                  style={{ top: "50%", transform: "translateY(-50%)", height: "4px", background: "rgba(255,255,255,0.25)" }}
-                />
-                {/* Golden fill */}
-                <div
-                  className="pointer-events-none absolute left-0 rounded-full"
-                  style={{
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    height: "4px",
-                    width: `calc(${(muted ? 0 : volume) * 100}% - 6px)`,
-                    minWidth: "0px",
-                    background: "linear-gradient(90deg, #FFB800, #FFD700, #FFF176)",
-                    boxShadow: "0 0 6px rgba(255,215,0,0.55)",
-                    transition: "width 0.1s ease",
-                  }}
-                />
-                {/* Golden thumb */}
-                <div
-                  className="pointer-events-none absolute rounded-full"
-                  style={{
-                    top: "50%",
-                    left: `clamp(6px, calc(${(muted ? 0 : volume) * 100}%), calc(100% - 6px))`,
-                    transform: "translate(-50%, -50%)",
-                    width: "12px",
-                    height: "12px",
-                    background: "#FFD700",
-                    boxShadow: "0 0 7px rgba(255,215,0,0.85)",
-                    transition: "left 0.1s ease",
-                  }}
-                />
-                {/* Invisible input for interaction */}
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.02"
-                  value={muted ? 0 : volume}
-                  onChange={handleVolumeChange}
-                  className="absolute inset-0 w-full opacity-0"
-                  aria-label="Volume"
-                  style={{ height: "20px", cursor: "pointer" }}
-                />
-              </div>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={toggleCC}
-            className={`hidden h-7 w-7 shrink-0 place-items-center rounded-full transition hover:bg-white/10 sm:grid sm:h-8 sm:w-8 ${ccEnabled ? "text-cyan-400 bg-white/10" : ""
-              }`}
-            aria-label="Captions"
-          >
-            <CaptionsIcon />
-          </button>
-          <button
-            type="button"
-            onClick={togglePictureInPicture}
-            className={`hidden h-7 w-7 shrink-0 place-items-center rounded-full transition hover:bg-white/10 sm:grid sm:h-8 sm:w-8 ${isPip ? "text-cyan-400 bg-white/10" : ""
-              }`}
-            aria-label="Mini player"
-          >
-            <MiniPlayerIcon />
-          </button>
-          <div className="relative min-w-0 flex-1" style={{ height: "20px" }}>
-            {/* Track background — always visible */}
-            <div
-              className="pointer-events-none absolute left-0 right-0 rounded-full"
-              style={{ top: "50%", transform: "translateY(-50%)", height: "4px", background: "rgba(255,255,255,0.25)" }}
-            />
-            {/* Golden fill — grows with progress */}
-            <div
-              className="pointer-events-none absolute left-0 rounded-full"
-              style={{
-                top: "50%",
-                transform: "translateY(-50%)",
-                height: "4px",
-                width: `${progress}%`,
-                background: "linear-gradient(90deg, #FFB800, #FFD700, #FFF176)",
-                boxShadow: "0 0 6px rgba(255,215,0,0.55)",
-                transition: isLive ? "width 1s linear" : "none",
-              }}
-            />
-            {/* Golden thumb dot */}
-            <div
-              className="pointer-events-none absolute rounded-full"
-              style={{
-                top: "50%",
-                left: `${progress}%`,
-                transform: "translate(-50%, -50%)",
-                width: "13px",
-                height: "13px",
-                background: "#FFD700",
-                boxShadow: "0 0 8px rgba(255,215,0,0.9)",
-                transition: isLive ? "left 1s linear" : "none",
-              }}
-            />
-            {/* Invisible range input on top for interaction */}
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={progress}
-              onChange={seek}
-              className="seek-bar absolute inset-0 w-full opacity-0"
-              aria-label="Playback progress"
-              style={{ height: "20px", cursor: "pointer" }}
-            />
-          </div>
 
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            className="grid h-7 w-7 shrink-0 place-items-center rounded-full transition hover:bg-white/10 sm:h-8 sm:w-8"
-            aria-label="Fullscreen"
-          >
-            <FullscreenIcon />
-          </button>
-        </div>
-      </div>
-
-      {isMobileFullscreen && (
-        <>
-          {/* Drawer Overlay */}
-          {isDrawerOpen && (
-            <div 
-              className="absolute inset-0 bg-black/60 z-40 transition-opacity"
-              onClick={() => setIsDrawerOpen(false)}
-            />
-          )}
-
-          {/* Swipe-up Drawer */}
-          <div 
-            className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : (controlsVisible || showSwipeHint) ? 'translate-y-[calc(100%-48px)] h-[75vh]' : 'translate-y-full h-[75vh]'}`}
-          >
-            {/* Handle Area */}
-            <div 
-              className={`h-12 flex flex-col justify-center items-center cursor-pointer shrink-0 transition-opacity duration-1000 ${isDrawerOpen || controlsVisible || showSwipeHint ? 'opacity-100' : 'opacity-0'}`}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+            <div
+              className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : (controlsVisible || showSwipeHint) ? 'translate-y-[calc(100%-48px)] h-[75vh]' : 'translate-y-full h-[75vh]'}`}
             >
-              <div className="w-12 h-1.5 bg-white/30 rounded-full" />
-              {!isDrawerOpen && (
-                <span className={`text-[10px] text-white/80 font-bold uppercase mt-1 tracking-widest transition-opacity duration-1000 ${showSwipeHint ? 'opacity-100' : 'opacity-0'}`}>Swipe Up</span>
-              )}
-            </div>
-
-            {/* Scrollable Content */}
-            <div className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10">
-              {/* Active Channel Details */}
-              <div className="flex items-center justify-between border-b border-white/5 pb-4">
-                <div className="flex items-center gap-3">
-                  {poster && (
-                    <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded bg-white p-1">
-                      <img
-                        src={poster}
-                        alt=""
-                        className="max-h-full max-w-full object-contain"
-                      />
-                    </span>
-                  )}
-                  <div>
-                    <h2 className="font-display text-lg tracking-wide text-white uppercase">
-                      {channels && activeChannelIndex !== undefined && channels[activeChannelIndex]
-                        ? channels[activeChannelIndex].title
-                        : "Live Stream"}
-                    </h2>
-                    <p className="text-xs text-white/50">
-                      {servers[activeIndex] ? `Playing: ${servers[activeIndex].name}` : ""}
-                    </p>
-                  </div>
-                </div>
-                <span className="flex items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase text-white">
-                  <EyeIcon />
-                  {formatViewerCount(liveViewers)} watching
-                </span>
+              <div
+                className={`h-12 flex flex-col justify-center items-center cursor-pointer shrink-0 transition-opacity duration-1000 ${isDrawerOpen || controlsVisible || showSwipeHint ? 'opacity-100' : 'opacity-0'}`}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+              >
+                <div className="w-12 h-1.5 bg-white/30 rounded-full" />
+                {!isDrawerOpen && (
+                  <span className={`text-[10px] text-white/80 font-bold uppercase mt-1 tracking-widest transition-opacity duration-1000 ${showSwipeHint ? 'opacity-100' : 'opacity-0'}`}>Swipe Up</span>
+                )}
               </div>
 
-              {/* Servers List */}
-              {servers.length > 1 && (
-                <div className="space-y-2">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
-                    Select Server
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {servers.map((server, index) => {
-                      const isActive = index === activeIndex;
-                      return (
-                        <button
-                          key={server.name}
-                          type="button"
-                          onClick={() => onSelectServer?.(index)}
-                          className={`relative rounded-lg px-4 py-2 font-display text-sm tracking-wide transition border ${
-                            isActive
+              <div className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10">
+                <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                  <div className="flex items-center gap-3">
+                    {poster && (
+                      <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded bg-white p-1">
+                        <img
+                          src={poster}
+                          alt=""
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </span>
+                    )}
+                    <div>
+                      <h2 className="font-display text-lg tracking-wide text-white uppercase">
+                        {channels && activeChannelIndex !== undefined && channels[activeChannelIndex]
+                          ? channels[activeChannelIndex].title
+                          : "Live Stream"}
+                      </h2>
+                      <p className="text-xs text-white/50">
+                        {servers[activeIndex] ? `Playing: ${servers[activeIndex].name}` : ""}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="flex items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase text-white">
+                    <EyeIcon />
+                    {formatViewerCount(liveViewers)} watching
+                  </span>
+                </div>
+
+                {servers.length > 1 && (
+                  <div className="space-y-2">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
+                      Select Server
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {servers.map((server, index) => {
+                        const isActive = index === activeIndex;
+                        return (
+                          <button
+                            key={server.name}
+                            type="button"
+                            onClick={() => onSelectServer?.(index)}
+                            className={`relative rounded-lg px-4 py-2 font-display text-sm tracking-wide transition border ${isActive
                               ? "bg-floodlight-500 border-floodlight-500 text-void-950 font-bold"
                               : "border-white/10 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
-                          }`}
-                        >
-                          {server.name}
-                          {server.quality && (
-                            <span
-                              className={`ml-1.5 rounded px-1 py-0.5 text-[10px] font-semibold ${
-                                isActive
+                              }`}
+                          >
+                            {server.name}
+                            {server.quality && (
+                              <span
+                                className={`ml-1.5 rounded px-1 py-0.5 text-[10px] font-semibold ${isActive
                                   ? "bg-void-950/20 text-void-950"
                                   : "bg-white/10 text-white/40"
-                              }`}
-                            >
-                              {server.quality}
-                            </span>
-                          )}
-                        </button>
-                      );
-                    })}
+                                  }`}
+                              >
+                                {server.quality}
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Channels List */}
-              {channels && channels.length > 0 && (
-                <div className="space-y-3">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
-                    Switch Channel
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2 pb-6 sm:grid-cols-3">
-                    {channels.map((channel, index) => {
-                      const isActive = index === activeChannelIndex;
-                      return (
-                        <button
-                          key={channel.id}
-                          type="button"
-                          onClick={() => {
-                            onSelectChannel?.(index);
-                            setIsDrawerOpen(false); // Auto-close drawer on channel select
-                          }}
-                          className={`flex items-center gap-2.5 rounded-lg border p-2 text-left transition ${
-                            isActive
+                {channels && channels.length > 0 && (
+                  <div className="space-y-3">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-white/45">
+                      Switch Channel
+                    </h3>
+                    <div className="grid grid-cols-2 gap-2 pb-6 sm:grid-cols-3">
+                      {channels.map((channel, index) => {
+                        const isActive = index === activeChannelIndex;
+                        return (
+                          <button
+                            key={channel.id}
+                            type="button"
+                            onClick={() => {
+                              onSelectChannel?.(index);
+                              setIsDrawerOpen(false);
+                            }}
+                            className={`flex items-center gap-2.5 rounded-lg border p-2 text-left transition ${isActive
                               ? "border-floodlight-500 bg-floodlight-500/15 text-white"
                               : "border-white/5 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
-                          }`}
-                        >
-                          <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded bg-white p-0.5">
-                            <img
-                              src={channel.logo}
-                              alt=""
-                              className="max-h-full max-w-full object-contain"
-                            />
-                          </span>
-                          <span className="font-display text-xs tracking-wide truncate">
-                            {channel.title}
-                          </span>
-                        </button>
-                      );
-                    })}
+                              }`}
+                          >
+                            <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded bg-white p-0.5">
+                              <img
+                                src={channel.logo}
+                                alt=""
+                                className="max-h-full max-w-full object-contain"
+                              />
+                            </span>
+                            <span className="font-display text-xs tracking-wide truncate">
+                              {channel.title}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
-        </>
-      )}
-    </div>
-  </>
+          </>
+        )}
+      </div>
+    </>
   );
 }
