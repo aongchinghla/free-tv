@@ -51,9 +51,11 @@ const tvlinks: TVChannel[] = [
     title: "T-Sports HD",
     logo: "/T_Sports_logo.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" },
-      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/T-Sports/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" },
+      { name: "Server 1", quality: "HD", url: "https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
+      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" },
+      { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/T-Sports/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" }
+
 
     ]
   },
@@ -75,7 +77,17 @@ const tvlinks: TVChannel[] = [
     logo: "/cazetv.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
+      { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/720p-vtt/index.m3u8" },
+      { name: "Server 3", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
+    ]
+  },
+  {
+    id: "goal-tv",
+    type: "tv",
+    title: "Goal TV",
+    logo: "/cazetv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://streams2.sofast.tv/sofastplayout/WiseM3U8_1/master.m3u8" }
     ]
   },
   {
