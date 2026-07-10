@@ -20,8 +20,9 @@ const tvlinks: TVChannel[] = [
     logo: "/bein-sports-logo.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "https://ua.online24.pm/play/1103/350B326FB34F4B8/video.m3u8" },
-      { name: "Server 3", quality: "HD", url: "https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8" }
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://ua102.online24.pm:8222/1101/video.m3u8?token=350B326FB34F4B8" },
+      { name: "Server 3", quality: "HD", url: "https://ua.online24.pm/play/1103/350B326FB34F4B8/video.m3u8" },
+      { name: "Server 4", quality: "HD", url: "https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8" }
     ]
   },
   {
@@ -36,12 +37,33 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "t-sportshd",
+    type: "tv",
+    title: "T-Sports HD",
+    logo: "/T_Sports_logo.webp",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/T-Sports/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
+      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" }
+    ]
+  },
+  {
+    id: "united-sports",
+    type: "tv",
+    title: "United Sports HD",
+    logo: "/united.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a0f8/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://flkmzyq9.megogo.xyz/iptv/YSWL6KZU93STS7/2505/index.m3u8" }
+    ]
+  },
+  {
     id: "fifa",
     type: "tv",
     title: "FIFA",
     logo: "/fifa.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://live.inplyr.com/room/168740.m3u8" },
+      { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
     ]
   },
@@ -51,9 +73,8 @@ const tvlinks: TVChannel[] = [
     title: "BTV",
     logo: "https://ssl.com.bd/sites/default/files/BTV%20Logo%20Gallery.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8" },
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/btv/tracks-v1a1/mono.m3u8" },
-      { name: "Server 2", quality: "HD", url: "http://198.195.239.50:8095/btv/tracks-v1a1/mono.m3u8" }
+      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8" }
     ]
   },
   {
@@ -88,7 +109,7 @@ const tvlinks: TVChannel[] = [
     id: "ptv-sports",
     type: "tv",
     title: "PTV Sports",
-    logo: "http://dds.oncast.me/img/logo/sp3.pn",
+    logo: "http://dds.oncast.me/img/logo/sp3.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8" }
     ]
@@ -148,6 +169,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "willow-extra",
+    type: "tv",
+    title: "Willow Extra",
+    logo: "https://aimages.willow.tv/wlo_logo_200_200.jpg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://27.124.71.27/Willow_Extra/index.m3u8" }
+    ]
+  },
+  {
     id: "MNX-HD",
     type: "tv",
     title: "MNX-HD",
@@ -157,30 +187,21 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "toon-goggles",
-    type: "tv",
-    title: "Toon Goggles",
-    logo: "/toon-goggles.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://d1eg24xrsfr6kv.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-b4b1bzxkt1uzo-prod/tg/tg/tg.m3u8" }
-    ]
-  },
-  {
-    id: "funny-junior",
-    type: "tv",
-    title: "Funny Junior HD",
-    logo: "/funny-junior.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/funnyjunior/playlist.m3u8" }
-    ]
-  },
-  {
     id: "the-movie-club",
     type: "tv",
     title: "The Movie Club",
     logo: "/the-movie-club.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://cc-r5hupcym5oehh.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-r5hupcym5oehh/SBUM/RunnTV/BollyFlix_IN/BollyFlix_IN.m3u8" }
+    ]
+  },
+  {
+    id: "superrix",
+    type: "tv",
+    title: "Super RIX",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/611-cinemax.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/superrix/playlist.m3u8" }
     ]
   },
   {
@@ -676,6 +697,179 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/thunder/playlist.m3u8" }
     ]
   },
+
+  // ── Kids Channels ──────────────────────────────────────────
+  {
+    id: "motu-patlu",
+    type: "tv",
+    title: "Motu Patlu",
+    logo: "https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8" }
+    ]
+  },
+  {
+    id: "gopal-bhar-tv",
+    type: "tv",
+    title: "Gopal Bhar",
+    logo: "https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8" }
+    ]
+  },
+  {
+    id: "tom-and-jerry",
+    type: "tv",
+    title: "Tom and Jerry",
+    logo: "https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live20.bozztv.com/giatvplayout7/giatv-208314/tracks-v1a1/mono.ts.m3u8" }
+    ]
+  },
+  {
+    id: "toon-goggles",
+    type: "tv",
+    title: "Toon Goggles",
+    logo: "https://www.toongoggles.com/themes/custom/tg/toon_goggles/logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d1eg24xrsfr6kv.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-b4b1bzxkt1uzo-prod/tg/tg/tg.m3u8" }
+    ]
+  },
+  {
+    id: "toon-goggles2",
+    type: "tv",
+    title: "Toon Goggle",
+    logo: "https://www.toongoggles.com/themes/custom/tg/toon_goggles/logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=36" }
+    ]
+  },
+  {
+    id: "funny-junior",
+    type: "tv",
+    title: "Funny Junior HD",
+    logo: "/funny-junior.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/funnyjunior/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "zoo-moo",
+    type: "tv",
+    title: "ZOO MOO",
+    logo: "https://static.wikia.nocookie.net/logopedia/images/4/44/ZooMoo_Kids_2020.svg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://zoomoo-samsungau.amagi.tv/playlist720p.m3u8" }
+    ]
+  },
+  {
+    id: "nick-german-pluto-tv",
+    type: "tv",
+    title: "Nick German Pluto TV",
+    logo: "https://static.wikia.nocookie.net/logopedia/images/e/e4/Nickplutotvlogo2023.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ede448d3d50590007a4419elivestitch/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel&profilesFromStream=true" }
+    ]
+  },
+  {
+    id: "nick-jr-us-pluto-tv",
+    type: "tv",
+    title: "Nick Jr US Pluto TV",
+    logo: "https://static.wikia.nocookie.net/logopedia/images/6/69/Nicktoons_2023_Logo.svg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca6748a37b88b269472dad9livestitch/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=978&deviceId=5ca6748a37b88b269472dad9&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&profilesFromStream=true" }
+    ]
+  },
+  {
+    id: "nickelodeon",
+    type: "tv",
+    title: "Nickelodeon",
+    logo: "https://static.wikia.nocookie.net/logopedia/images/0/0b/Nick_Jr_%28formerly_Noggin%29_New_Logo.jpg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://151.80.18.177:86/Nickelodeon_FR/index.m3u8" }
+    ]
+  },
+  {
+    id: "nickelodeon-pluto-tv",
+    type: "tv",
+    title: "Nickelodeon Pluto TV",
+    logo: "https://static.wikia.nocookie.net/logopedia/images/0/0b/Nick_Jr_%28formerly_Noggin%29_New_Logo.jpg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ca673e0d0bd6c2689c94ce3livestitch/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel&profilesFromStream=true" }
+    ]
+  },
+  {
+    id: "pappa-pig-pluto",
+    type: "tv",
+    title: "Pappa Pig Pluto",
+    logo: "https://static.wikia.nocookie.net/logopedia/images/c/c5/Peppa_Pig.svg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5d14fb6c84dd37df3b4290c5/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c287c49-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=58d418cb-223d-4b93-bc8e-5666e9995949" }
+    ]
+  },
+  {
+    id: "pbs-kids-alaska",
+    type: "tv",
+    title: "PBS Kids Alaska",
+    logo: "https://i.imgur.com/ambc9le.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://livestream.pbskids.org/out/v1/94b88ad58fc14f84a9382341f1c00b82/akst.m3u8" }
+    ]
+  },
+  {
+    id: "persiana-junior",
+    type: "tv",
+    title: "Persiana Junior",
+    logo: "https://i.imgur.com/zeKHZYG.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://junhls.persiana.live/hls/stream.m3u8" }
+    ]
+  },
+  {
+    id: "roya-kids",
+    type: "tv",
+    title: "Roya Kids",
+    logo: "https://i.imgur.com/acuCGF8.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://playlist.fasttvcdn.com/pl/ptllxjd03j6g9oxxjdfapg/roya-kids/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "ryan-and-friends",
+    type: "tv",
+    title: "Ryan and Friends",
+    logo: "https://i.imgur.com/jcIprmt.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://ryanandfriends-samsungau.amagi.tv/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "smurf-tv",
+    type: "tv",
+    title: "Smurf TV",
+    logo: "https://tvpnlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/GBBD1300001WA_20250107T030751SQUARE.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d144py1prrd7ns.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-affg2ev32s0dq/smrfe.m3u8" }
+    ]
+  },
+  {
+    id: "tg-junior",
+    type: "tv",
+    title: "TG Junior",
+    logo: "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/USBB3600001R6_20240520T214655SQUARE.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d3i6upqaqzosi1.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-9k42dil136v1e-prod/tg/jr_us/tg_jr_us.m3u8" }
+    ]
+  },
+  {
+    id: "the-lego-channel",
+    type: "tv",
+    title: "The LEGO Channel",
+    logo: "https://tvpnlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/00/02/34/USBA2300001S8_20241210T013828SQUARE.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://dh18i7whff86v.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-pslwq5nud9zg9/index.m3u8" }
+    ]
+  }
 ];
 
 export default tvlinks;
