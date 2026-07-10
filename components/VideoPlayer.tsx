@@ -679,8 +679,7 @@ export default function VideoPlayer({
       if (!controlsVisible) {
         showControlsTemporarily();
       } else {
-        togglePlay();
-        showControlsTemporarily();
+        setControlsVisible(false);
       }
       return;
     }
@@ -990,7 +989,7 @@ export default function VideoPlayer({
           </button>
         )}
 
-        {servers.length > 1 && !isFullscreen && (
+        {servers.length > 1 && !isMobileFullscreen && (
           <div className={`absolute bottom-14 left-3 right-3 z-20 flex items-center justify-center gap-1 rounded-full bg-black/45 p-1 backdrop-blur-sm sm:bottom-[5.5rem] sm:left-1/2 sm:right-auto sm:-translate-x-1/2 overflow-x-auto scrollbar-none whitespace-nowrap transition-opacity duration-300 ${!controlsVisible ? "pointer-events-none opacity-0" : "opacity-100"}`}>
             {servers.map((server, index) => {
               const isActive = index === activeIndex;
@@ -1213,6 +1212,7 @@ export default function VideoPlayer({
               style={{ height: "20px", cursor: "pointer" }}
             />
           </div>
+
           <button
             type="button"
             onClick={toggleFullscreen}
@@ -1236,7 +1236,7 @@ export default function VideoPlayer({
 
           {/* Swipe-up Drawer */}
           <div 
-            className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : 'translate-y-[calc(100%-48px)] h-[75vh]'}`}
+            className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : (controlsVisible || showSwipeHint) ? 'translate-y-[calc(100%-48px)] h-[75vh]' : 'translate-y-full h-[75vh]'}`}
           >
             {/* Handle Area */}
             <div 
