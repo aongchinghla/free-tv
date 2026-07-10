@@ -165,17 +165,8 @@ export default function VideoPlayer({
   const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [showSwipeHint, setShowSwipeHint] = useState(false);
   const touchStartYRef = useRef(0);
   const touchCurrentYRef = useRef(0);
-
-  useEffect(() => {
-    if (isMobileFullscreen) {
-      setShowSwipeHint(true);
-      const timer = setTimeout(() => setShowSwipeHint(false), 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [isMobileFullscreen]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartYRef.current = e.touches[0].clientY;
@@ -187,6 +178,7 @@ export default function VideoPlayer({
   };
 
   const handleTouchEnd = () => {
+    if (!isMobileFullscreen) return;
     const diff = touchStartYRef.current - touchCurrentYRef.current;
     if (diff > 50) {
       setIsDrawerOpen(true);
@@ -926,7 +918,12 @@ export default function VideoPlayer({
       <div
         ref={shellRef}
         onMouseMove={showControlsTemporarily}
-        onTouchStart={showControlsTemporarily}
+        onTouchStart={(e) => {
+          showControlsTemporarily();
+          handleTouchStart(e);
+        }}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onMouseLeave={() => setControlsVisible(false)}
         className={containerClasses}
         style={containerStyle}
@@ -1229,21 +1226,8 @@ export default function VideoPlayer({
             )}
 
             <div
-              className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : (controlsVisible || showSwipeHint) ? 'translate-y-[calc(100%-48px)] h-[75vh]' : 'translate-y-full h-[75vh]'}`}
+              className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : 'translate-y-full h-[75vh]'}`}
             >
-              <div
-                className={`h-12 flex flex-col justify-center items-center cursor-pointer shrink-0 transition-opacity duration-1000 ${isDrawerOpen || controlsVisible || showSwipeHint ? 'opacity-100' : 'opacity-0'}`}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-              >
-                <div className="w-12 h-1.5 bg-white/30 rounded-full" />
-                {!isDrawerOpen && (
-                  <span className={`text-[10px] text-white/80 font-bold uppercase mt-1 tracking-widest transition-opacity duration-1000 ${showSwipeHint ? 'opacity-100' : 'opacity-0'}`}>Swipe Up</span>
-                )}
-              </div>
-
               <div className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4">
                   <div className="flex items-center gap-3">
