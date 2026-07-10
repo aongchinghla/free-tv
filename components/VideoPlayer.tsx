@@ -205,15 +205,13 @@ export default function VideoPlayer({
 
     const handlePopState = () => {
       setIsMobileFullscreen(false);
+      setIsDrawerOpen(false);
     };
 
     window.addEventListener("popstate", handlePopState);
 
     return () => {
       window.removeEventListener("popstate", handlePopState);
-      if (window.history.state?.fullscreen) {
-        window.history.back();
-      }
     };
   }, [isMobileFullscreen]);
 
@@ -668,11 +666,7 @@ export default function VideoPlayer({
 
   function handleVideoClick() {
     if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
-      if (!controlsVisible) {
-        showControlsTemporarily();
-      } else {
-        setControlsVisible(false);
-      }
+      showControlsTemporarily();
       return;
     }
     togglePlay();
@@ -970,19 +964,7 @@ export default function VideoPlayer({
             </span>
           </div>
 
-          {isMobileFullscreen && (
-            <button
-              type="button"
-              onClick={toggleFullscreen}
-              className="absolute left-3 top-3 z-40 grid h-8 w-8 place-items-center rounded-full bg-black/60 text-white shadow-md backdrop-blur-sm transition hover:bg-black/80 active:scale-95"
-              aria-label="Exit fullscreen"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5" />
-                <path d="M12 19l-7-7 7-7" />
-              </svg>
-            </button>
-          )}
+
 
           {servers.length > 1 && !isMobileFullscreen && (
             <div className={`absolute bottom-14 left-3 right-3 z-20 flex items-center justify-center gap-1 rounded-full bg-black/45 p-1 backdrop-blur-sm sm:bottom-[5.5rem] sm:left-1/2 sm:right-auto sm:-translate-x-1/2 overflow-x-auto scrollbar-none whitespace-nowrap transition-opacity duration-300 ${!controlsVisible ? "pointer-events-none opacity-0" : "opacity-100"}`}>
