@@ -31,7 +31,8 @@ const tvlinks: TVChannel[] = [
     logo: "/somoy_tv.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" }
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" },
+      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -41,7 +42,7 @@ const tvlinks: TVChannel[] = [
     logo: "/fifa.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://live.inplyr.com/room/168740.m3u8" },
-      { name: "Server 2", quality: "HD", url: "https://live.tsports.com/mobile_hls/tsports_live_3/playlist.m3u8" }
+      { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
     ]
   },
   {
@@ -51,7 +52,7 @@ const tvlinks: TVChannel[] = [
     logo: "https://ssl.com.bd/sites/default/files/BTV%20Logo%20Gallery.png",
     servers: [
       { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8" },
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://198.195.239.50:8095/btv/tracks-v1a1/mono.m3u8" },
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/btv/tracks-v1a1/mono.m3u8" },
       { name: "Server 2", quality: "HD", url: "http://198.195.239.50:8095/btv/tracks-v1a1/mono.m3u8" }
     ]
   },
@@ -81,6 +82,15 @@ const tvlinks: TVChannel[] = [
     logo: "https://imglink.cc/cdn/RY7jBwPKAr.jpg",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8" }
+    ]
+  },
+  {
+    id: "ptv-sports",
+    type: "tv",
+    title: "PTV Sports",
+    logo: "http://dds.oncast.me/img/logo/sp3.pn",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
