@@ -126,9 +126,8 @@ const tvlinks: TVChannel[] = [
     title: "Telemundo",
     logo: "Telemundo_logo.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8" },
-      { name: "Server 2", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master_720.m3u8" }
-
+      { name: "Server 2", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master_720.m3u8" },
+      { name: "Server 1", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8" }
     ]
   },
   {
