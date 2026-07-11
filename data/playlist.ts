@@ -595,15 +595,6 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8" }
     ]
   },
-  {
-    id: "9xm",
-    type: "tv",
-    title: "9XM",
-    logo: "/9xm.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.175.73.12:8080/live/155/155_0.m3u8" }
-    ]
-  },
 
   // ── ENG International News ────────────────────────────────
   {

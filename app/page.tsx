@@ -7,7 +7,7 @@ export default function HomePage() {
 
   return (
     <>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <HomeTvPlayer channels={channels} />
     </>
   );
