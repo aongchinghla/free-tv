@@ -137,7 +137,7 @@ const tvlinks: TVChannel[] = [
     title: "Willow Extra",
     logo: "Willow.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://27.124.71.27/Willow_Extra/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://27.124.71.27/Willow_Extra/index.m3u8" }
     ]
   },
   {
