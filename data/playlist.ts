@@ -31,7 +31,8 @@ const tvlinks: TVChannel[] = [
     title: "FOX Sport",
     logo: "/Fox_sport.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports720p.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports720p.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://y3fqd48g.megatv.fun/iptv/NRLXRWSBWBPLN4/19146/index.m3u8" }
     ]
   },
   {
@@ -334,6 +335,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "star-news",
+    type: "tv",
+    title: "Star News",
+    logo: "/Star_News_logo.webp",
+    servers: [
+      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8" }
+    ]
+  },
+  {
     id: "independent-tv",
     type: "tv",
     title: "Independent TV",
@@ -515,6 +525,42 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "green-tv",
+    type: "tv",
+    title: "Green TV",
+    logo: ".png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/greentv.stream/live-orgin/greentv.stream/chunks.m3u8" }
+    ]
+  },
+  {
+    id: "s-tv-bangla",
+    type: "tv",
+    title: "S TV Bangla",
+    logo: ".png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channels.stream/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "asian-tv",
+    type: "tv",
+    title: "Asian TV",
+    logo: "/asian-tv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://mtlivestream.com/hls/asian/ytlive/index.m3u8" }
+    ]
+  },
+  {
+    id: "channel-9",
+    type: "tv",
+    title: "Channel 9 HD",
+    logo: "/channel-9-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channel9hd.stream/playlist.m3u8" }
+    ]
+  },
+  {
     id: "g-series",
     type: "tv",
     title: "G-Series",
@@ -584,6 +630,24 @@ const tvlinks: TVChannel[] = [
     logo: "/z-sonarbangla.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8" }
+    ]
+  },
+  {
+    id: "zee-bangla-hd",
+    type: "tv",
+    title: "Zee Bangla HD",
+    logo: "/zee-bangla.svg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/zeebangla/2500.m3u8" }
+    ]
+  },
+  {
+    id: "colors-bangla",
+    type: "tv",
+    title: "Colors Bangla",
+    logo: "/colors-bangla.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/colorsbanglahd/800.m3u8" }
     ]
   },
   {
