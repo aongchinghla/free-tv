@@ -132,6 +132,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "willow-extra",
+    type: "tv",
+    title: "Willow Extra",
+    logo: "Willow.webp",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://27.124.71.27/Willow_Extra/index.m3u8" }
+    ]
+  },
+  {
     id: "tvp-sports",
     type: "tv",
     title: "TVP Sports",
@@ -214,12 +223,23 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "willow-extra",
+    id: "star-sports1",
     type: "tv",
-    title: "Willow Extra",
-    logo: "Willow.webp",
+    title: "Star Sports 1",
+    logo: "https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://27.124.71.27/Willow_Extra/index.m3u8" }
+      { name: "Server 1 Hindi", quality: "HD", url: "https://starsportshindiii.pages.dev/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
+    ]
+  },
+  {
+    id: "star-sports2",
+    type: "tv",
+    title: "Star Sports 2",
+    logo: "https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a00v/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
     ]
   },
   {
@@ -276,6 +296,33 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://amg01076-lightningintern-actionhollywood-samsungnz-82rry.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungnz/playlist.m3u8" }
     ]
   },
+  {
+    id: "hbo",
+    type: "tv",
+    title: "HBO",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/HBO_logo.svg/2560px-HBO_logo.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.213.31.111/HBOHD/index.m3u8" }
+    ]
+  },
+  {
+    id: "&flix",
+    type: "tv",
+    title: "&Flix HD",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/HBO_logo.svg/2560px-HBO_logo.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01m/index.m3u8" }
+    ]
+  },
+  {
+    id: "cindie",
+    type: "tv",
+    title: "CINDIE",
+    logo: "https://i.ibb.co/Ns62bY2/2021-04-22-10-24-01.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d20xuwbyc4yoag.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/DistroTV-MuxIP-CINDIE/387.m3u8" }
+    ]
+  },
 
   // ── Akash Go ──────────────────────────────────────────────
   {
@@ -321,6 +368,16 @@ const tvlinks: TVChannel[] = [
     logo: "https://dl.dropbox.com/s/4ldi1dp09s8o6bm/atn_news_bd.png",
     servers: [
       { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/index.m3u8" }
+    ]
+  },
+  {
+    id: "nagorik-tv",
+    type: "tv",
+    title: "NAGORIK TV HD",
+    logo: "Nagorik.webp",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://198.195.239.50:8095/nagorik/tracks-v1a1/mono.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.163.117.83:8063/ch8/tracks-v1/index.fmp4.m3u8" }
     ]
   },
   {
@@ -400,7 +457,8 @@ const tvlinks: TVChannel[] = [
     title: "Gazi TV",
     logo: "/Gtvhd.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://edge01.iptv.digijadoo.net/live/nagorik_tv/chunks.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://edge01.iptv.digijadoo.net/live/nagorik_tv/chunks.m3u8" }
     ]
   },
   {
@@ -497,7 +555,7 @@ const tvlinks: TVChannel[] = [
     id: "music-india",
     type: "tv",
     title: "Music India",
-    logo: "/yrf-musicgfs.jpg",
+    logo: "/Music_India.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://cdn-2.pishow.tv/live/226/master.m3u8" }
     ]
@@ -506,7 +564,7 @@ const tvlinks: TVChannel[] = [
     id: "zoom",
     type: "tv",
     title: "ZOOM",
-    logo: "/zoom.png",
+    logo: "/Zoom-TV.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://pubads.g.doubleclick.net/ssai/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8" }
     ]
