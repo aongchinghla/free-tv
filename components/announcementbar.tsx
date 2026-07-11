@@ -31,20 +31,8 @@ export default function AnnouncementBar() {
 
                         {/* Title Tag */}
                         <span className="inline-block font-bold tracking-wider text-rose-500 text-[11px] bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20 uppercase shrink-0">
-                            Upcoming QFs
+                            Upcoming Fifa World Cup 2026 Matches
                         </span>
-
-                        {/* Match 1: Spain vs Belgium */}
-                        <span className="inline-flex items-center gap-2 ml-4 shrink-0">
-                            <span className="text-white/40 text-xs font-normal">(Tomorrow 1:00 AM)</span>
-                            <span className="font-semibold">Spain</span>
-                            <img src="https://flagcdn.com/es.svg" alt="Spain" className="inline-block h-3.5 w-auto rounded-sm object-cover shadow-sm" />
-                            <span className="text-white/60 mx-1 font-normal text-xs">vs</span>
-                            <img src="https://flagcdn.com/be.svg" alt="Belgium" className="inline-block h-3.5 w-auto rounded-sm object-cover shadow-sm" />
-                            <span className="font-semibold">Belgium</span>
-                        </span>
-
-                        <span className="text-white/20 mx-4 shrink-0">•</span>
 
                         {/* Match 2: Norway vs England */}
                         <span className="inline-flex items-center gap-2 shrink-0">

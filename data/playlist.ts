@@ -63,7 +63,7 @@ const tvlinks: TVChannel[] = [
     id: "win-sports",
     type: "tv",
     title: "Win Sports",
-    logo: "/wiin.png",
+    logo: "/Win_Sports_logo.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://181.78.71.71:18000/play/a03p/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.78.211.244:8005/play/a0am/index.m3u8" },
@@ -74,7 +74,7 @@ const tvlinks: TVChannel[] = [
     id: "caze-tv",
     type: "tv",
     title: "Caze TV",
-    logo: "/cazetv.png",
+    logo: "/caze-tv-logo.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/1080p-vtt/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/720p-vtt/index.m3u8" },
@@ -85,7 +85,7 @@ const tvlinks: TVChannel[] = [
     id: "goal-tv",
     type: "tv",
     title: "Goal TV",
-    logo: "/cazetv.png",
+    logo: "/goal-212.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://streams2.sofast.tv/sofastplayout/WiseM3U8_1/master.m3u8" }
     ]
@@ -94,7 +94,7 @@ const tvlinks: TVChannel[] = [
     id: "dsports",
     type: "tv",
     title: "DSports HD",
-    logo: "/united.png",
+    logo: "/DSports.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://190.108.83.69:8000/play/a05w/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.64.27.65:8000/play/a0dq/index.m3u8" }
@@ -104,7 +104,7 @@ const tvlinks: TVChannel[] = [
     id: "fifa",
     type: "tv",
     title: "FIFA",
-    logo: "/fifa.png",
+    logo: "/fifa-world-cup-2026.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
@@ -124,7 +124,7 @@ const tvlinks: TVChannel[] = [
     id: "telemundo",
     type: "tv",
     title: "Telemundo",
-    logo: "https://assets.football-logos.cc/logos/tournaments/1500x1500/fifa-world-cup-2026--white.10e0b37b.png",
+    logo: "Telemundo_logo.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master_720.m3u8" }
@@ -135,7 +135,7 @@ const tvlinks: TVChannel[] = [
     id: "tvp-sports",
     type: "tv",
     title: "TVP Sports",
-    logo: "https://imglink.cc/cdn/RY7jBwPKAr.jpg",
+    logo: "TVP_Sport.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8" }
     ]
@@ -144,9 +144,19 @@ const tvlinks: TVChannel[] = [
     id: "ptv-sports",
     type: "tv",
     title: "PTV Sports",
-    logo: "http://dds.oncast.me/img/logo/sp3.png",
+    logo: "PTV_Sports.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8" }
+    ]
+  },
+  {
+    id: "red-bull",
+    type: "tv",
+    title: "Red Bull TV",
+    logo: "red-bull-tv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://dms.redbull.tv/v5/destination/rbtv/linear-borb/personal_computer/http/bd/en/playlist.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_3360.m3u8" }
     ]
   },
   {
@@ -162,7 +172,7 @@ const tvlinks: TVChannel[] = [
     id: "channel-1",
     type: "tv",
     title: "CHANNEL 1 4K",
-    logo: "/Channel_1_Logo_Bangladesh.png",
+    logo: "/Channel_1_Logo.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8" }
     ]
@@ -207,7 +217,7 @@ const tvlinks: TVChannel[] = [
     id: "willow-extra",
     type: "tv",
     title: "Willow Extra",
-    logo: "https://aimages.willow.tv/wlo_logo_200_200.jpg",
+    logo: "Willow.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "http://27.124.71.27/Willow_Extra/index.m3u8" }
     ]
@@ -379,9 +389,18 @@ const tvlinks: TVChannel[] = [
     id: "jago-news24",
     type: "tv",
     title: "Jago News24",
-    logo: "/jago-news24-logo.png",
+    logo: "/jago.png",
     servers: [
       { name: "Akash Go", quality: "HD", url: "https://app.ncare.live/live-orgin/jagonews24.stream/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "gazi-tv",
+    type: "tv",
+    title: "Gazi TV",
+    logo: "/Gtvhd.webp",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://edge01.iptv.digijadoo.net/live/nagorik_tv/chunks.m3u8" }
     ]
   },
   {
@@ -475,12 +494,30 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "colors-bangla",
+    id: "music-india",
     type: "tv",
-    title: "Colors Bangla",
-    logo: "/colors-bangla.png",
+    title: "Music India",
+    logo: "/yrf-musicgfs.jpg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://catchup.yuppcdn.net/amazonv2/36/preview/colorsbanglahd/master/chunklist.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://cdn-2.pishow.tv/live/226/master.m3u8" }
+    ]
+  },
+  {
+    id: "zoom",
+    type: "tv",
+    title: "ZOOM",
+    logo: "/zoom.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://pubads.g.doubleclick.net/ssai/event/JCAm25qkRXiKcK1AJMlvKQ/master.m3u8" }
+    ]
+  },
+  {
+    id: "sangeet-bangla",
+    type: "tv",
+    title: "Sangeet Bangla",
+    logo: "/sangeet.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://cdn-4.pishow.tv/live/1143/master.m3u8" }
     ]
   },
   {
@@ -496,7 +533,7 @@ const tvlinks: TVChannel[] = [
     id: "star-jalsha-hd",
     type: "tv",
     title: "Star jalsha HD",
-    logo: "/star-jalsha-hd.png",
+    logo: "/star_jalsha_logo.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8" }
     ]
@@ -744,6 +781,15 @@ const tvlinks: TVChannel[] = [
 
   // ── Kids Channels ──────────────────────────────────────────
   {
+    id: "rongeen-tv",
+    type: "tv",
+    title: "Rongeen TV",
+    logo: "/rongeen.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://server.thelegitpro.in/rongeentv/rongeentv/tracks-v1a1/mono.m3u8" }
+    ]
+  },
+  {
     id: "motu-patlu",
     type: "tv",
     title: "Motu Patlu",
@@ -821,7 +867,7 @@ const tvlinks: TVChannel[] = [
     title: "Nick Jr US Pluto TV",
     logo: "https://static.wikia.nocookie.net/logopedia/images/6/69/Nicktoons_2023_Logo.svg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca6748a37b88b269472dad9livestitch/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=978&deviceId=5ca6748a37b88b269472dad9&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&profilesFromStream=true" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca6748a37b88b269472dad9livestitch/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=978&deviceId=5ca6748a37b88b269472dad9&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=&deviceLon=&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&profilesFromStream=true" }
     ]
   },
   {
@@ -830,7 +876,7 @@ const tvlinks: TVChannel[] = [
     title: "Nickelodeon",
     logo: "https://static.wikia.nocookie.net/logopedia/images/0/0b/Nick_Jr_%28formerly_Noggin%29_New_Logo.jpg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://151.80.18.177:86/Nickelodeon_FR/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://151.80.18.177:86/Nickelodeon_FR/index.m3u8" }
     ]
   },
   {
@@ -848,7 +894,7 @@ const tvlinks: TVChannel[] = [
     title: "Pappa Pig Pluto",
     logo: "https://static.wikia.nocookie.net/logopedia/images/c/c5/Peppa_Pig.svg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5d14fb6c84dd37df3b4290c5/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c287c49-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=58d418cb-223d-4b93-bc8e-5666e9995949" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://cfd-v4-service-channel-stitcher-use1-1.prd.pluto.tv/stitch/hls/channel/5d14fb6c84dd37df3b4290c5/master.m3u8?appName=web&appVersion=unknown&clientTime=0&deviceDNT=0&deviceId=6c287c49-30d3-11ef-9cf5-e9ddff8ff496&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&serverSideAds=false&sid=58d418cb-223d-4b93-bc8e-5666e9995949" }
     ]
   },
   {
@@ -866,7 +912,7 @@ const tvlinks: TVChannel[] = [
     title: "Persiana Junior",
     logo: "https://i.imgur.com/zeKHZYG.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://junhls.persiana.live/hls/stream.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=https://junhls.persiana.live/hls/stream.m3u8" }
     ]
   },
   {
