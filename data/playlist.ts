@@ -101,16 +101,16 @@ const tvlinks: TVChannel[] = [
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.64.27.65:8000/play/a0dq/index.m3u8" }
     ]
   },
-  {
-    id: "fifa",
-    type: "tv",
-    title: "FIFA",
-    logo: "/fifa-world-cup-2026.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
-    ]
-  },
+  // {
+  //   id: "fifa",
+  //   type: "tv",
+  //   title: "FIFA",
+  //   logo: "/fifa-world-cup-2026.png",
+  //   servers: [
+  //     { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8" },
+  //     { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
+  //   ]
+  // },
   {
     id: "btv",
     type: "tv",
