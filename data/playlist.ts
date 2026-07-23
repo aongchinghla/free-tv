@@ -31,8 +31,9 @@ const tvlinks: TVChannel[] = [
     title: "FOX Sport",
     logo: "/Fox_sport.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports720p.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://y3fqd48g.megatv.fun/iptv/NRLXRWSBWBPLN4/19146/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://gpuserver3.tier1streams.com/FOX_SOCCER_PLUS/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://d1jzu95oc8fgt3.cloudfront.net/FOX_Sports720p.m3u8" },
+      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://y3fqd48g.megatv.fun/iptv/NRLXRWSBWBPLN4/19146/index.m3u8" }
     ]
   },
   {
@@ -101,16 +102,24 @@ const tvlinks: TVChannel[] = [
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.64.27.65:8000/play/a0dq/index.m3u8" }
     ]
   },
-  // {
-  //   id: "fifa",
-  //   type: "tv",
-  //   title: "FIFA",
-  //   logo: "/fifa-world-cup-2026.png",
-  //   servers: [
-  //     { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8" },
-  //     { name: "Server 2", quality: "HD", url: "https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8" }
-  //   ]
-  // },
+  {
+    id: "fifa+",
+    type: "tv",
+    title: "FIFA +",
+    logo: "/FIFA+.webp",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "fifa-plus-women",
+    type: "tv",
+    title: "FIFA + Women",
+    logo: "/FIFA+.webp",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://cffda8ff.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9GSUZBUGx1c3dvbWVuX0hMUw/playlist.m3u8" }
+    ]
+  },
   {
     id: "btv",
     type: "tv",
@@ -134,10 +143,11 @@ const tvlinks: TVChannel[] = [
   {
     id: "willow-extra",
     type: "tv",
-    title: "Willow Extra",
+    title: "Willow",
     logo: "Willow.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://27.124.71.27/Willow_Extra/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://27.124.71.27/Willow_Extra/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen5.aynascope.net/willowhd/index.m3u8" }
     ]
   },
   {
@@ -195,15 +205,15 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/fighter/playlist.m3u8" }
     ]
   },
-  {
-    id: "next-hd",
-    type: "tv",
-    title: "NEXT HD",
-    logo: "https://carboncredits.com/wp-content/uploads/2025/09/shutterstock_2306088965-e1757112807302.jpg",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://next.badinan.xyz/nexttv/FHD/playlist.m3u8" }
-    ]
-  },
+  // {
+  //   id: "next-hd",
+  //   type: "tv",
+  //   title: "NEXT HD",
+  //   logo: "https://carboncredits.com/wp-content/uploads/2025/09/shutterstock_2306088965-e1757112807302.jpg",
+  //   servers: [
+  //     { name: "Server 1", quality: "HD", url: "" }
+  //   ]
+  // },
   {
     id: "live-football",
     type: "tv",
