@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { TVChannel } from "@/data/playlist";
+import LiveBadge from "./LiveBadge";
 
 function parseViewerCount(value: string | number | undefined): number {
   if (!value) return 0;
@@ -951,18 +952,15 @@ export default function VideoPlayer({
           )}
 
           <div
-            className={`pointer-events-none absolute left-1/2 top-3 flex -translate-x-1/2 items-center rounded-full border border-white/20 bg-white/15 p-0.5 shadow-xl shadow-black/30 backdrop-blur-md transition-opacity duration-300 ${!controlsVisible ? "opacity-0" : "opacity-100"
-              }`}
+            className="pointer-events-none absolute left-1/2 top-3 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-white/20 bg-black/25 p-1 shadow-xl shadow-black/30 backdrop-blur-md select-none"
           >
-            <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase text-white sm:px-4 sm:py-2 sm:text-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-signal-500 sm:h-2 sm:w-2" />
-              Live
-            </span>
-            <span className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase text-white sm:px-4 sm:py-2 sm:text-xs">
+            <LiveBadge size="sm" />
+            <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white sm:px-3 sm:py-1 sm:text-xs leading-none">
               <EyeIcon />
-              {formatViewerCount(liveViewers)} watching
+              <span>{formatViewerCount(liveViewers)} watching</span>
             </span>
           </div>
+
 
 
 
