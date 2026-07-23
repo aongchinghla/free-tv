@@ -57,8 +57,28 @@ const tvlinks: TVChannel[] = [
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
       { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" },
       { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/T-Sports/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" }
-
-
+    ]
+  },
+  {
+    id: "tsn-hd",
+    type: "tv",
+    title: "TSN HD",
+    logo: "/TSN_Logo.webp",
+    servers: [
+      { name: "TSN 1", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_1/index.m3u8" },
+      { name: "TSN 2", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_2/index.m3u8" },
+      { name: "TSN 3", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_3/index.m3u8" },
+      { name: "TSN 4", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_4/index.m3u8" },
+      { name: "TSN 5", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_5/index.m3u8" }
+    ]
+  },
+  {
+    id: "trace-sport-stars",
+    type: "tv",
+    title: "Trace Sport Stars",
+    logo: "/trace.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://channels.trace.plus/Traceprod/TRACE_SPORT_STARS_sd/index.m3u8" },
     ]
   },
   {
@@ -69,7 +89,8 @@ const tvlinks: TVChannel[] = [
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://181.78.71.71:18000/play/a03p/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://181.78.211.244:8005/play/a0am/index.m3u8" },
-      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://181.78.8.199:8000/play/a06v/index.m3u8" }
+      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://181.78.8.199:8000/play/a06v/index.m3u8" },
+      { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://138.121.15.230:9002/WIN-SPORT/index.m3u8" }
     ]
   },
   {
@@ -141,7 +162,7 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "willow-extra",
+    id: "willow",
     type: "tv",
     title: "Willow",
     logo: "Willow.webp",
@@ -236,7 +257,7 @@ const tvlinks: TVChannel[] = [
     id: "star-sports1",
     type: "tv",
     title: "Star Sports 1",
-    logo: "https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg",
+    logo: "/star_Sports_1_HD.png",
     servers: [
       { name: "Server 1 Hindi", quality: "HD", url: "https://starsportshindiii.pages.dev/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
@@ -246,10 +267,21 @@ const tvlinks: TVChannel[] = [
     id: "star-sports2",
     type: "tv",
     title: "Star Sports 2",
-    logo: "https://i.ytimg.com/vi/CXTxw-69Ch8/maxresdefault.jpg",
+    logo: "/star-sports2.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a00v/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
+      // { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a00v/index.m3u8" },
+      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
+    ]
+  },
+  {
+    id: "star-sports-select",
+    type: "tv",
+    title: "Star Sports Select",
+    logo: "/star-sports-select.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/sspts1/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
     ]
   },
   {
@@ -277,6 +309,15 @@ const tvlinks: TVChannel[] = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/611-cinemax.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/superrix/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "cine-nanar",
+    type: "tv",
+    title: "CINE NANAR",
+    logo: "/cine-nanar.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://145.239.5.177/349/index.m3u8" }
     ]
   },
   {
