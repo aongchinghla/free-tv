@@ -257,7 +257,7 @@ const tvlinks: TVChannel[] = [
     id: "star-sports1",
     type: "tv",
     title: "Star Sports 1",
-    logo: "/star_Sports_1_HD.png",
+    logo: "/Star_Sports_1_HD.png",
     servers: [
       { name: "Server 1 Hindi", quality: "HD", url: "https://starsportshindiii.pages.dev/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
