@@ -288,7 +288,7 @@ const tvlinks: TVChannel[] = [
     id: "MNX-HD",
     type: "tv",
     title: "MNX-HD",
-    logo: "/MNX-HD.png",
+    logo: "/mnx-hd.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/screem/playlist.m3u8" }
     ]
