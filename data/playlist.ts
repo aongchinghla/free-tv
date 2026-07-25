@@ -672,7 +672,7 @@ const tvlinks: TVChannel[] = [
     title: "MTV",
     logo: "/mTV.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://202.70.146.135:8000/play/a05o/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://58.147.140.106:4000/play/a0h4/index.m3u8" }
     ]
   },
   {
