@@ -666,6 +666,24 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "mtv",
+    type: "tv",
+    title: "MTV",
+    logo: "/mTV.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://202.70.146.135:8000/play/a05o/index.m3u8" }
+    ]
+  },
+  {
+    id: "net-geo",
+    type: "tv",
+    title: "Net Geo",
+    logo: "/mTV.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://202.70.146.135:8000/play/a05o/index.m3u8" }
+    ]
+  },
+  {
     id: "sangeet-bangla",
     type: "tv",
     title: "Sangeet Bangla",
