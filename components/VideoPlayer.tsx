@@ -255,7 +255,6 @@ export default function VideoPlayer({
     const MAX_NETWORK_RETRIES = 6;
     const MAX_NATIVE_RETRIES = 5;
 
-    // ── Stall watchdog: if video is supposed to be playing but time isn't advancing ──
     function startStallWatchdog() {
       clearInterval(stallWatchdogTimer);
       stallWatchdogTimer = setInterval(() => {
@@ -274,7 +273,6 @@ export default function VideoPlayer({
       }, 4000);
     }
 
-    // ── Full HLS reload without showing error to user ──
     async function attemptHlsReconnect() {
       if (!video) return;
       console.warn("[Live] Reconnecting HLS stream silently...");
@@ -328,7 +326,6 @@ export default function VideoPlayer({
       startStallWatchdog();
     }
 
-    // ── Schedule a visible countdown then auto-reconnect ──
     function scheduleVisibleReconnect(delaySec = 5) {
       clearInterval(reconnectCountdownRef.current);
       setReconnectCountdown(delaySec);
@@ -356,7 +353,6 @@ export default function VideoPlayer({
         if (networkRetryCount <= MAX_NETWORK_RETRIES) {
           setBuffering(true);
           setError(null);
-          // Exponential backoff: 1s, 2s, 4s... capped at 8s
           const delay = Math.min(1000 * Math.pow(2, networkRetryCount - 1), 8000);
           setTimeout(() => {
             if (hls) hls.startLoad();
@@ -364,7 +360,6 @@ export default function VideoPlayer({
           return;
         }
 
-        // All network retries exhausted — try full reconnect
         console.warn("[Live] Network retries exhausted, attempting full reconnect...");
         networkRetryCount = 0;
         scheduleVisibleReconnect(5);
@@ -390,19 +385,16 @@ export default function VideoPlayer({
           return;
         }
 
-        // All media recovery stages failed — full reconnect
         console.warn("[Live] All media recovery failed, doing full reconnect...");
         mediaRecoveryStage = 0;
         scheduleVisibleReconnect(5);
         return;
       }
 
-      // Unknown fatal error — full reconnect silently
       console.warn("[Live] Unknown fatal error, reconnecting:", data.details);
       scheduleVisibleReconnect(5);
     }
 
-    // ── Native video element error handler (Safari / iOS) with auto-retry ──
     const handleNativeError = () => {
       if (nativeRetryCount >= MAX_NATIVE_RETRIES) {
         setError("This server cannot be loaded right now.");
@@ -439,7 +431,6 @@ export default function VideoPlayer({
     };
     const handleStalled = () => setBuffering(true);
 
-    // ── Tab visibility: reconnect if tab was hidden for a while ──
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
         if (!video.paused && video.currentTime === lastCurrentTime) {
@@ -450,7 +441,6 @@ export default function VideoPlayer({
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    // expose manual retry for the UI button
     (window as any).__liveRetry = () => {
       clearInterval(reconnectCountdownRef.current);
       attemptHlsReconnect();
@@ -464,7 +454,6 @@ export default function VideoPlayer({
       video.addEventListener("playing", handlePlaying);
       video.addEventListener("stalled", handleStalled);
 
-      // Native HLS (Safari / iOS)
       if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.addEventListener("error", handleNativeError);
         video.addEventListener("loadedmetadata", () => {
@@ -563,7 +552,6 @@ export default function VideoPlayer({
     setLiveViewers(base > 0 ? base : 1);
 
     if (!id) {
-      // Fallback to local simulation when no channel ID is provided
       const timer = window.setInterval(() => {
         setLiveViewers((current) => {
           const swing = Math.max(1, Math.round(current * 0.006));
@@ -574,7 +562,6 @@ export default function VideoPlayer({
       return () => window.clearInterval(timer);
     }
 
-    // Generate a unique client identifier for heartbeats on this mount
     const clientId = Math.random().toString(36).substring(2, 15);
 
     async function heartbeat(action = "heartbeat") {
@@ -619,7 +606,6 @@ export default function VideoPlayer({
       const inFs = !!document.fullscreenElement;
       setNativeFullscreen(inFs);
       if (!inFs) {
-        // Exiting fullscreen — always show controls
         setControlsVisible(true);
         clearTimeout(hideTimerRef.current);
       }
@@ -680,8 +666,6 @@ export default function VideoPlayer({
     const nextMuted = !video.muted;
     video.muted = nextMuted;
     setMuted(nextMuted);
-
-    // Unmute সবসময় full volume এ
     if (!nextMuted) {
       video.volume = 1;
       setVolume(1);
@@ -698,7 +682,6 @@ export default function VideoPlayer({
     setVolume(nextVolume);
     setMuted(nextVolume === 0);
 
-    // % দেখাও
     setShowVolPct(true);
     clearTimeout(volPctTimerRef.current);
     volPctTimerRef.current = setTimeout(() => setShowVolPct(false), 1200);
@@ -777,7 +760,6 @@ export default function VideoPlayer({
     const nextEnabled = !ccEnabled;
     setCcEnabled(nextEnabled);
 
-    // 1. For HLS.js
     if (hlsRef.current) {
       const hls = hlsRef.current;
       if (nextEnabled) {
@@ -1016,7 +998,6 @@ export default function VideoPlayer({
                 </p>
                 <p className="text-sm text-white/60">{error}</p>
 
-                {/* Auto-reconnect countdown */}
                 {reconnectCountdown > 0 && (
                   <p className="mt-3 text-xs text-yellow-400">
                     Reconnecting in <span className="font-bold">{reconnectCountdown}s</span>…
