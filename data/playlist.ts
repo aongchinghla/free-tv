@@ -43,8 +43,9 @@ const tvlinks: TVChannel[] = [
     logo: "/somoy_tv.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" },
-      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8" }
+      { name: "Akash Go", quality: "HD", url: "https://live.shamim-iptv.workers.dev/SOMOYTVHD.m3u8" },
+      // { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" },
+      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -305,10 +306,10 @@ const tvlinks: TVChannel[] = [
   {
     id: "superrix",
     type: "tv",
-    title: "Super RIX",
+    title: "Superrix HD",
     logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/611-cinemax.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/superrix/playlist.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/rix/playlist.m3u8" }
     ]
   },
   {
