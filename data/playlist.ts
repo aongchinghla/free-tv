@@ -53,9 +53,9 @@ const tvlinks: TVChannel[] = [
     logo: "/T_Sports_logo.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://bdixserver.tvhunter.top/ant1007/tracks-v1a1/index.m3u8" },
       { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" },
-      { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/T-Sports/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" }
+      { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" }
     ]
   },
   {
@@ -81,10 +81,22 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "tnt-sports",
+    type: "tv",
+    title: "TNT Sports",
+    logo: "tnt-sports.png",
+    servers: [
+      { name: "TNT 1", quality: "HD", url: "/api/proxy?url=http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/2505/index.m3u8" },
+      { name: "TNT 2", quality: "HD", url: "/api/proxy?url=http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/2506/index.m3u8" },
+      { name: "TNT 3", quality: "HD", url: "/api/proxy?url=http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/6564/index.m3u8" },
+      { name: "TNT 4", quality: "HD", url: "/api/proxy?url=http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/19054/index.m3u8" }
+    ]
+  },
+  {
     id: "trace-sport-stars",
     type: "tv",
     title: "Trace Sport Stars",
-    logo: "/trace.png",
+    logo: "/TraceSSLogo.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://channels.trace.plus/Traceprod/TRACE_SPORT_STARS_sd/index.m3u8" },
     ]
@@ -180,22 +192,64 @@ const tvlinks: TVChannel[] = [
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen5.aynascope.net/willowhd/index.m3u8" }
     ]
   },
-  {
-    id: "tvp-sports",
-    type: "tv",
-    title: "TVP Sports",
-    logo: "TVP_Sport.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8" }
-    ]
-  },
+  // {
+  //   id: "tvp-sports",
+  //   type: "tv",
+  //   title: "TVP Sports",
+  //   logo: "TVP_Sport.png",
+  //   servers: [
+  //     { name: "Server 1", quality: "HD", url: "https://1nyaler.streamhostingcdn.top/stream/89/index.m3u8" }
+  //   ]
+  // },
   {
     id: "ptv-sports",
     type: "tv",
     title: "PTV Sports",
     logo: "PTV_Sports.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8" },
+      { name: "Server 2", quality: "HD", url: "http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8" }
+    ]
+  },
+  {
+    id: "star-sports",
+    type: "tv",
+    title: "Star Sports",
+    logo: "/star-sports.png",
+    servers: [
+      { name: "Server 1 Hindi", quality: "HD", url: "/api/proxy?url=http://103.175.73.12:8080/live/151/151_0.m3u8" }
+    ]
+  },
+  {
+    id: "star-sports1",
+    type: "tv",
+    title: "Star Sports 1",
+    logo: "/Star_Sports_1_HD.png",
+    servers: [
+      { name: "Server 1 Hindi", quality: "HD", url: "https://starsportshindiii.pages.dev/index.m3u8" },
+      { name: "Server 2 Hindi", quality: "HD", url: "/api/proxy?url=http://41.205.93.154/STARSPORTS1/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
+    ]
+  },
+  {
+    id: "star-sports2",
+    type: "tv",
+    title: "Star Sports 2",
+    logo: "/star-sports2.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
+      // { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a00v/index.m3u8" },
+      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
+    ]
+  },
+  {
+    id: "star-sports-select",
+    type: "tv",
+    title: "Star Sports Select",
+    logo: "/star-sports-select.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/sspts1/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
     ]
   },
   {
@@ -260,38 +314,6 @@ const tvlinks: TVChannel[] = [
     logo: "https://d229kpbsb5jevy.cloudfront.net/tv/150/150/bnw/Cricket-Gold-Channel_black.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://d1nj4u39ja4cn0.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/FLS-MuxIP-CricketGold/418.m3u8" }
-    ]
-  },
-  {
-    id: "star-sports1",
-    type: "tv",
-    title: "Star Sports 1",
-    logo: "/Star_Sports_1_HD.png",
-    servers: [
-      { name: "Server 1 Hindi", quality: "HD", url: "https://starsportshindiii.pages.dev/index.m3u8" },
-      { name: "Server 2 Hindi", quality: "HD", url: "/api/proxy?url=http://41.205.93.154/STARSPORTS1/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
-    ]
-  },
-  {
-    id: "star-sports2",
-    type: "tv",
-    title: "Star Sports 2",
-    logo: "/star-sports2.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
-      // { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a00v/index.m3u8" },
-      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
-    ]
-  },
-  {
-    id: "star-sports-select",
-    type: "tv",
-    title: "Star Sports Select",
-    logo: "/star-sports-select.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/sspts1/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
     ]
   },
   {
@@ -394,6 +416,52 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://d20xuwbyc4yoag.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/DistroTV-MuxIP-CINDIE/387.m3u8" }
     ]
   },
+  {
+    id: "hum-tv",
+    type: "tv",
+    title: "HUM TV",
+    logo: "hum-tv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/hum_tv_abr/index.m3u8" }
+    ]
+  },
+  {
+    id: "sony-television",
+    type: "tv",
+    title: "Sony Television",
+    logo: "sony-television.png",
+    servers: [
+      { name: "Server 1", quality: "SD", url: "https://stream.ottplus.live/live/sony_ent_sd_abr/index.m3u8" }
+    ]
+  },
+  {
+    id: "sony-television-hd",
+    type: "tv",
+    title: "Sony Television HD",
+    logo: "sony-television-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/sony_ent_hd_abr/index.m3u8" }
+    ]
+  },
+  {
+    id: "sony-max-hd",
+    type: "tv",
+    title: "Sony Max HD",
+    logo: "sony-max-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/max_hd_abr/live/max_hd_720/chunks.m3u8" }
+    ]
+  },
+  {
+    id: "sony-sab-hd",
+    type: "tv",
+    title: "Sony Sab HD",
+    logo: "sony-sab-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/sub_hd_abr/index.m3u8" }
+    ]
+  },
+
 
   // ── Akash Go ──────────────────────────────────────────────
   {
@@ -583,7 +651,8 @@ const tvlinks: TVChannel[] = [
     title: "Rajdhani TV",
     logo: "https://rajdhani.tv/assets/images/logo-3.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8" },
+      { name: "Akash Go", quality: "HD", url: "http://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8" }
     ]
   },
   {
@@ -646,7 +715,7 @@ const tvlinks: TVChannel[] = [
     title: "Movie Bangla",
     logo: "https://i.ibb.co/0rPdpW9/MB-TV.jpg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://alvetv.com/moviebanglatv/8080/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://alvetv.com/moviebanglatv/8080/index.m3u8" }
     ]
   },
   {
@@ -691,9 +760,7 @@ const tvlinks: TVChannel[] = [
     title: "MTV",
     logo: "/mTV.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "http://58.147.140.106:4000/play/a0h4/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "http://66.102.126.10:8000/play/a021/index.m3u8" },
-      { name: "Server 3", quality: "HD", url: "http://66.102.126.10:8000/play/a020/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "http://58.147.140.106:4000/play/a0h4/index.m3u8" }
     ]
   },
   {
@@ -747,7 +814,8 @@ const tvlinks: TVChannel[] = [
     title: "Star jalsha HD",
     logo: "/star_jalsha_logo.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8" },
+      // { name: "Server 2", quality: "HD", url: "https://live.shamim-iptv.workers.dev/STARJOLSHAHD.m3u8" }
     ]
   },
 
@@ -884,11 +952,30 @@ const tvlinks: TVChannel[] = [
     id: "sky-news",
     type: "tv",
     title: "Sky News",
-    logo: "/sky-news.png",
+    logo: "/Sky-News.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://d39chvnxm26pgp.cloudfront.net/v1/master/72588bff830dec7b26d7cbbf5f3c24928aec5c03/cc-sthen6ms4vxgv-stage/WNSFO/ABR.m3u8" }
     ]
   },
+  {
+    id: "india-today",
+    type: "tv",
+    title: "India Today",
+    logo: "/india-today.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://indiatodaylive.akamaized.net/hls/live/2014320/indiatoday/indiatodaylive/live_720p/chunks.m3u8" }
+    ]
+  },
+  {
+    id: "fox-news",
+    type: "tv",
+    title: "Fox News",
+    logo: "/Fox-News.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://fox-foxnewsnow-vizio.amagi.tv/playlist.m3u8" }
+    ]
+  },
+
 
   // ── New Channels ──────────────────────────────────────────
   {
