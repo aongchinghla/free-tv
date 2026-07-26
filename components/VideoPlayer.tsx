@@ -306,7 +306,11 @@ export default function VideoPlayer({
         xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
       });
       hlsRef.current = hls;
-      hls.loadSource(src);
+      const effectiveSrc =
+        src.startsWith("http://") && window.location.protocol === "https:"
+          ? `/api/proxy?url=${encodeURIComponent(src)}`
+          : src;
+      hls.loadSource(effectiveSrc);
       hls.attachMedia(video);
       networkRetryCount = 0;
       mediaRecoveryStage = 0;
@@ -454,6 +458,12 @@ export default function VideoPlayer({
       video.addEventListener("playing", handlePlaying);
       video.addEventListener("stalled", handleStalled);
 
+      // Smart URL: if src is http:// and page is https://, route through proxy to avoid mixed content block
+      const effectiveSrc =
+        src.startsWith("http://") && window.location.protocol === "https:"
+          ? `/api/proxy?url=${encodeURIComponent(src)}`
+          : src;
+
       if (video.canPlayType("application/vnd.apple.mpegurl")) {
         video.addEventListener("error", handleNativeError);
         video.addEventListener("loadedmetadata", () => {
@@ -465,7 +475,7 @@ export default function VideoPlayer({
             video.play().catch(() => setPaused(true));
           });
         });
-        video.src = src;
+        video.src = effectiveSrc;
         video.load();
         startStallWatchdog();
         return;
@@ -494,7 +504,7 @@ export default function VideoPlayer({
           xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
         });
         hlsRef.current = hls;
-        hls.loadSource(src);
+        hls.loadSource(effectiveSrc);
         hls.attachMedia(video);
 
         hls.on(Hls.Events.MANIFEST_PARSED, () => {

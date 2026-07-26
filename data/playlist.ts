@@ -43,9 +43,7 @@ const tvlinks: TVChannel[] = [
     logo: "/somoy_tv.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
-      { name: "Akash Go", quality: "HD", url: "https://live.shamim-iptv.workers.dev/SOMOYTVHD.m3u8" },
-      // { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1" },
-      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8" }
+      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8" },
     ]
   },
   {
@@ -71,6 +69,15 @@ const tvlinks: TVChannel[] = [
       { name: "TSN 3", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_3/index.m3u8" },
       { name: "TSN 4", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_4/index.m3u8" },
       { name: "TSN 5", quality: "HD", url: "/api/proxy?url=http://40.160.24.55/TSN_5/index.m3u8" }
+    ]
+  },
+  {
+    id: "a-sports-hd",
+    type: "tv",
+    title: "A Sports HD",
+    logo: "/A_Sports_Logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.204:881/A-Sports/video.m3u8" },
     ]
   },
   {
@@ -148,7 +155,8 @@ const tvlinks: TVChannel[] = [
     title: "BTV",
     logo: "https://ssl.com.bd/sites/default/files/BTV%20Logo%20Gallery.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/btv/tracks-v1a1/mono.m3u8" },
+      { name: "Server 1", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1725/output/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/btv/tracks-v1a1/mono.m3u8" },
       { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8" }
     ]
   },
@@ -261,6 +269,7 @@ const tvlinks: TVChannel[] = [
     logo: "/Star_Sports_1_HD.png",
     servers: [
       { name: "Server 1 Hindi", quality: "HD", url: "https://starsportshindiii.pages.dev/index.m3u8" },
+      { name: "Server 2 Hindi", quality: "HD", url: "/api/proxy?url=http://41.205.93.154/STARSPORTS1/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01a/index.m3u8" }
     ]
   },
@@ -309,7 +318,17 @@ const tvlinks: TVChannel[] = [
     title: "Superrix HD",
     logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/611-cinemax.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/rix/playlist.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/superrix/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "star-movies",
+    type: "tv",
+    title: "Star Movies HD",
+    logo: "/star-movies-hd-logo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://66.102.126.10:8000/play/a021/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://66.102.126.10:8000/play/a020/index.m3u8" },
     ]
   },
   {
@@ -627,7 +646,7 @@ const tvlinks: TVChannel[] = [
     title: "Movie Bangla",
     logo: "https://i.ibb.co/0rPdpW9/MB-TV.jpg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://alvetv.com/moviebanglatv/8080/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "http://alvetv.com/moviebanglatv/8080/index.m3u8" }
     ]
   },
   {
@@ -672,7 +691,9 @@ const tvlinks: TVChannel[] = [
     title: "MTV",
     logo: "/mTV.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://58.147.140.106:4000/play/a0h4/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "http://58.147.140.106:4000/play/a0h4/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "http://66.102.126.10:8000/play/a021/index.m3u8" },
+      { name: "Server 3", quality: "HD", url: "http://66.102.126.10:8000/play/a020/index.m3u8" }
     ]
   },
   {
