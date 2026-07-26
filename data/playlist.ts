@@ -366,7 +366,7 @@ const tvlinks: TVChannel[] = [
     id: "tv9-bangla",
     type: "tv",
     title: "TV9 Bangla",
-    logo: "/test.png",
+    logo: "/tv9-bangla.jpg",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://amg01448-samsungin-tv9bangla-samsungin-9lgnh.amagi.tv/playlist/amg01448-samsungin-tv9bangla-samsungin/playlist.m3u8" }
     ]
@@ -402,7 +402,7 @@ const tvlinks: TVChannel[] = [
     id: "&flix",
     type: "tv",
     title: "&Flix HD",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/HBO_logo.svg/2560px-HBO_logo.svg.png",
+    logo: "/&flix_HD_Leap_forth.svg",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.60.162:2121/play/a01m/index.m3u8" }
     ]
@@ -420,7 +420,7 @@ const tvlinks: TVChannel[] = [
     id: "hum-tv",
     type: "tv",
     title: "HUM TV",
-    logo: "hum-tv.png",
+    logo: "hum-logo.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/hum_tv_abr/index.m3u8" }
     ]
@@ -429,17 +429,9 @@ const tvlinks: TVChannel[] = [
     id: "sony-television",
     type: "tv",
     title: "Sony Television",
-    logo: "sony-television.png",
+    logo: "Sony_TV_new.png",
     servers: [
-      { name: "Server 1", quality: "SD", url: "https://stream.ottplus.live/live/sony_ent_sd_abr/index.m3u8" }
-    ]
-  },
-  {
-    id: "sony-television-hd",
-    type: "tv",
-    title: "Sony Television HD",
-    logo: "sony-television-hd.png",
-    servers: [
+      { name: "Server 1", quality: "SD", url: "https://stream.ottplus.live/live/sony_ent_sd_abr/index.m3u8" },
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/sony_ent_hd_abr/index.m3u8" }
     ]
   },
@@ -447,7 +439,7 @@ const tvlinks: TVChannel[] = [
     id: "sony-max-hd",
     type: "tv",
     title: "Sony Max HD",
-    logo: "sony-max-hd.png",
+    logo: "/SONY_MAX.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/max_hd_abr/live/max_hd_720/chunks.m3u8" }
     ]
@@ -456,7 +448,7 @@ const tvlinks: TVChannel[] = [
     id: "sony-sab-hd",
     type: "tv",
     title: "Sony Sab HD",
-    logo: "sony-sab-hd.png",
+    logo: "/SONY_SAB_SD.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/sub_hd_abr/index.m3u8" }
     ]
@@ -758,7 +750,7 @@ const tvlinks: TVChannel[] = [
     id: "mtv",
     type: "tv",
     title: "MTV",
-    logo: "/mTV.png",
+    logo: "/MTV_New_Official.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "http://58.147.140.106:4000/play/a0h4/index.m3u8" }
     ]
@@ -812,7 +804,7 @@ const tvlinks: TVChannel[] = [
     id: "star-jalsha-hd",
     type: "tv",
     title: "Star jalsha HD",
-    logo: "/star_jalsha_logo.png",
+    logo: "/Star_Jalsha_HD.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://yupptvcatchupire.yuppcdn.net/preview/starjalsha/1800.m3u8" },
       // { name: "Server 2", quality: "HD", url: "https://live.shamim-iptv.workers.dev/STARJOLSHAHD.m3u8" }
