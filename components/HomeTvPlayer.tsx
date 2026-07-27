@@ -235,7 +235,7 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
                     </span>
                   </span>
                   {isActive && (
-                    <span className="shrink-0 rounded bg-floodlight-500 px-1.5 py-1 text-[9px] font-black uppercase leading-none text-black">
+                    <span className="shrink-0 rounded bg-floodlight-500 px-2 py-1 text-[10px] sm:text-xs font-black uppercase leading-none text-black">
                       Live
                     </span>
                   )}

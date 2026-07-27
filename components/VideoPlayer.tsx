@@ -953,7 +953,7 @@ export default function VideoPlayer({
             className="pointer-events-none absolute left-1/2 top-3 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-white/20 bg-black/25 p-1 shadow-xl shadow-black/30 backdrop-blur-md select-none"
           >
             <LiveBadge size="sm" />
-            <span className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white sm:px-3 sm:py-1 sm:text-xs leading-none">
+            <span className="flex h-[22px] items-center gap-1.5 rounded-full bg-white/10 px-2 text-[11px] font-semibold tracking-wide text-white sm:h-6 sm:px-2.5 sm:text-xs leading-none">
               <EyeIcon />
               <span>{formatViewerCount(liveViewers)} watching</span>
             </span>
@@ -1228,7 +1228,7 @@ export default function VideoPlayer({
                       </p>
                     </div>
                   </div>
-                  <span className="flex items-center gap-1.5 rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase text-white">
+                  <span className="flex h-[22px] items-center gap-1.5 rounded-full bg-white/5 px-2 text-[11px] font-bold uppercase text-white sm:h-6 sm:px-2.5 sm:text-xs">
                     <EyeIcon />
                     {formatViewerCount(liveViewers)} watching
                   </span>
