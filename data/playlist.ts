@@ -974,7 +974,7 @@ const tvlinks: TVChannel[] = [
     id: "nikki",
     type: "tv",
     title: "Nikki",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/9g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8" }
     ]
@@ -983,7 +983,7 @@ const tvlinks: TVChannel[] = [
     id: "originals",
     type: "tv",
     title: "Originals",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/9g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/originals/playlist.m3u8" }
     ]
@@ -992,7 +992,7 @@ const tvlinks: TVChannel[] = [
     id: "crazy-ex",
     type: "tv",
     title: "Crazy Ex",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/9g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crazy_ex/playlist.m3u8" }
     ]
@@ -1001,7 +1001,7 @@ const tvlinks: TVChannel[] = [
     id: "delicious",
     type: "tv",
     title: "Delicious",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/9g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/delicious/playlist.m3u8" }
     ]
@@ -1010,7 +1010,7 @@ const tvlinks: TVChannel[] = [
     id: "kids-stars",
     type: "tv",
     title: "Kids Stars",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/9g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/kidsstars/playlist.m3u8" }
     ]
@@ -1019,7 +1019,7 @@ const tvlinks: TVChannel[] = [
     id: "crimes",
     type: "tv",
     title: "Crimes",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/9g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crimes/playlist.m3u8" }
     ]
@@ -1028,7 +1028,7 @@ const tvlinks: TVChannel[] = [
     id: "true-stories",
     type: "tv",
     title: "True Stories",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/7g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/truestories/playlist.m3u8" }
     ]
@@ -1037,7 +1037,7 @@ const tvlinks: TVChannel[] = [
     id: "intelligence",
     type: "tv",
     title: "Intelligence",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/7g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/intelligence/playlist.m3u8" }
     ]
@@ -1046,7 +1046,7 @@ const tvlinks: TVChannel[] = [
     id: "sports-range",
     type: "tv",
     title: "Sports Range",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/7g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/sportrange/playlist.m3u8" }
     ]
@@ -1055,7 +1055,7 @@ const tvlinks: TVChannel[] = [
     id: "thunder-er",
     type: "tv",
     title: "Thunder Er",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgur.com/7g2kMA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/thunder/playlist.m3u8" }
     ]
