@@ -287,25 +287,11 @@ export default function VideoPlayer({
 
       const Hls = (await import("hls.js")).default;
       hls = new Hls({
-        maxBufferLength: 4,
-        maxMaxBufferLength: 15,
-        maxBufferHole: 0.5,
-        liveSyncDurationCount: 1,
-        liveMaxLatencyDurationCount: 3,
-        initialLiveManifestSize: 1,
-        startLevel: 0,
-        backBufferLength: 0,
         enableWorker: true,
-        lowLatencyMode: true,
-        fragLoadingTimeOut: 6000,
-        fragLoadingMaxRetry: 4,
-        levelLoadingTimeOut: 6000,
-        levelLoadingMaxRetry: 4,
-        manifestLoadingTimeOut: 6000,
-        manifestLoadingMaxRetry: 3,
+        lowLatencyMode: false,
+        startLevel: -1,
         startFragPrefetch: true,
         testBandwidth: false,
-        abrEwmaDefaultEstimate: 2000000,
         xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
       });
       hlsRef.current = hls;
@@ -488,25 +474,11 @@ export default function VideoPlayer({
 
       if (Hls.isSupported()) {
         hls = new Hls({
-          maxBufferLength: 4,
-          maxMaxBufferLength: 15,
-          maxBufferHole: 0.5,
-          liveSyncDurationCount: 1,
-          liveMaxLatencyDurationCount: 3,
-          initialLiveManifestSize: 1,
-          startLevel: 0,
-          backBufferLength: 0,
           enableWorker: true,
-          lowLatencyMode: true,
-          fragLoadingTimeOut: 6000,
-          fragLoadingMaxRetry: 4,
-          levelLoadingTimeOut: 6000,
-          levelLoadingMaxRetry: 4,
-          manifestLoadingTimeOut: 6000,
-          manifestLoadingMaxRetry: 3,
+          lowLatencyMode: false,
+          startLevel: -1,
           startFragPrefetch: true,
           testBandwidth: false,
-          abrEwmaDefaultEstimate: 2000000,
           xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
         });
         hlsRef.current = hls;
@@ -1291,11 +1263,11 @@ export default function VideoPlayer({
                               : "border-white/5 bg-void-800 text-white/60 hover:border-white/25 hover:text-white"
                               }`}
                           >
-                            <span className="grid h-8 w-8 shrink-0 place-items-center overflow-hidden rounded bg-white p-0.5">
+                            <span className="flex h-9 w-12 shrink-0 items-center justify-center overflow-hidden rounded bg-white p-1.5">
                               <img
                                 src={channel.logo}
                                 alt=""
-                                className="max-h-full max-w-full object-contain"
+                                className="h-full w-full object-contain"
                               />
                             </span>
                             <span className="font-display text-xs tracking-wide truncate">

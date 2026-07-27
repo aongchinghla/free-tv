@@ -219,11 +219,11 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
                   <span className="w-7 shrink-0 text-center text-[11px] font-black text-white/35">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="grid h-10 w-12 shrink-0 place-items-center overflow-hidden rounded bg-white p-1.5 shadow-lg shadow-black/20">
+                  <span className="flex h-10 w-14 shrink-0 items-center justify-center overflow-hidden rounded bg-white p-1.5 shadow-sm shadow-black/20">
                     <img
                       src={channel.logo}
                       alt=""
-                      className="max-h-full max-w-full object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </span>
                   <span className="min-w-0 flex-1">
