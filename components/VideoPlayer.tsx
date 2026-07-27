@@ -165,6 +165,7 @@ export default function VideoPlayer({
   const [nativeFullscreen, setNativeFullscreen] = useState(false);
   const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const touchStartYRef = useRef(0);
   const touchCurrentYRef = useRef(0);
@@ -193,6 +194,7 @@ export default function VideoPlayer({
   useEffect(() => {
     const checkViewport = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsPortrait(window.innerHeight > window.innerWidth);
     };
     checkViewport();
     window.addEventListener("resize", checkViewport);
@@ -732,7 +734,7 @@ export default function VideoPlayer({
         if (shell.requestFullscreen) {
           await shell.requestFullscreen();
           if (isMobile && screen.orientation && (screen.orientation as any).lock) {
-            await (screen.orientation as any).lock("portrait-primary").catch((e: any) => console.warn(e));
+            await (screen.orientation as any).lock("landscape").catch((e: any) => console.warn(e));
           }
         }
       } catch (e) {
@@ -784,11 +786,22 @@ export default function VideoPlayer({
   }
 
   const containerClasses = isMobileFullscreen
-    ? "fixed inset-0 z-[9999] bg-black flex flex-col justify-center w-full h-full overflow-hidden"
+    ? (isPortrait 
+      ? "fixed z-[9999] bg-black flex flex-col justify-center overflow-hidden" 
+      : "fixed inset-0 z-[9999] bg-black flex flex-col justify-center w-full h-full overflow-hidden")
     : `relative w-full overflow-hidden bg-black shadow-2xl shadow-black/50${!controlsVisible ? " cursor-none" : ""}`;
 
   const containerStyle = isMobileFullscreen
-    ? {}
+    ? (isPortrait ? {
+        width: '100vh',
+        height: '100vw',
+        transform: 'rotate(90deg)',
+        transformOrigin: 'center center',
+        top: '50%',
+        left: '50%',
+        marginTop: '-50vw',
+        marginLeft: '-50vh'
+      } : {})
     : { aspectRatio: "16/9" };
 
   return (
