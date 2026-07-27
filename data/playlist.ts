@@ -54,8 +54,8 @@ const tvlinks: TVChannel[] = [
     servers: [
       { name: "Server 1", quality: "HD", url: "https://bdixserver.tvhunter.top/ant1007/tracks-v1a1/index.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://flussonic.deltainfonet.com/01_Tsports_HD/tracks-v1a1/mono.m3u8" },
-      { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" },
-      { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" }
+      // { name: "Server 3", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1/mono.m3u8" },
+      // { name: "Server 4", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/tsports/tracks-v1a1a2/mono.m3u8" }
     ]
   },
   {
