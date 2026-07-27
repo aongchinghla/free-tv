@@ -192,6 +192,15 @@ const tvlinks: TVChannel[] = [
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen5.aynascope.net/willowhd/index.m3u8" }
     ]
   },
+  {
+    id: "real-madrid-tv",
+    type: "tv",
+    title: "Real Madrid TV",
+    logo: "real-madrid-tv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/master.m3u8" }
+    ]
+  },
   // {
   //   id: "tvp-sports",
   //   type: "tv",
@@ -693,6 +702,24 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "ekhon-tv",
+    type: "tv",
+    title: "Ekhon Tv",
+    logo: "ekhon-tv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/ekhon_tv_abr/index.m3u8" }
+    ]
+  },
+  {
+    id: "bijoy-tv",
+    type: "tv",
+    title: "Bijoy TV",
+    logo: "bijoy-tv.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live.shamim-iptv.workers.dev/bijoytv.m3u8" }
+    ]
+  },
+  {
     id: "g-series",
     type: "tv",
     title: "G-Series",
@@ -762,6 +789,15 @@ const tvlinks: TVChannel[] = [
     logo: "/mTV.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://202.70.146.135:8000/play/a05o/index.m3u8" }
+    ]
+  },
+  {
+    id: "9xm",
+    type: "tv",
+    title: "9XM",
+    logo: "9xm.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://wiselp.wiseplayout.com/9XM/master.m3u8" }
     ]
   },
   {
