@@ -14,8 +14,8 @@ export default function WatchClient({ match }: { match: TVChannel }) {
     : `${match.teamA?.name || ""} vs ${match.teamB?.name || ""}`;
 
   return (
-    <div>
-      <div className="px-3 sm:px-6 lg:px-8 mb-5">
+    <div className="mx-auto flex min-h-[100dvh] max-w-[1600px] flex-col justify-center px-3 pb-4 pt-4 sm:px-6 sm:pb-4 lg:px-8">
+      <div className="mb-5">
         <p className="mb-1 text-sm text-white/40">{match.competition} · {match.round}</p>
         <h1 className="font-display text-3xl tracking-wide text-white sm:text-4xl">
           {isTv ? (

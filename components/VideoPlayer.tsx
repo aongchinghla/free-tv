@@ -760,7 +760,7 @@ export default function VideoPlayer({
         if (shell.requestFullscreen) {
           await shell.requestFullscreen();
           if (isMobile && screen.orientation && (screen.orientation as any).lock) {
-            await (screen.orientation as any).lock("landscape").catch((e: any) => console.warn(e));
+            await (screen.orientation as any).lock("portrait-primary").catch((e: any) => console.warn(e));
           }
         }
       } catch (e) {

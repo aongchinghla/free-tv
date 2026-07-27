@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="bg-void-900 min-h-screen antialiased">
         <div className="fixed inset-0 -z-10 bg-stadium-grad" />
-        <main className="mx-auto flex flex-col justify-center min-h-[100dvh] max-w-[1600px] px-3 pb-4 sm:px-6 sm:pb-4 lg:px-8">
+        <main className="min-h-[100dvh] w-full overflow-x-hidden">
           {children}
         </main>
       </body>
