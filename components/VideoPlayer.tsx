@@ -598,6 +598,12 @@ export default function VideoPlayer({
       if (!inFs) {
         setControlsVisible(true);
         clearTimeout(hideTimerRef.current);
+        setIsMobileFullscreen(false);
+        try {
+          if (screen.orientation && (screen.orientation as any).unlock) {
+            (screen.orientation as any).unlock();
+          }
+        } catch (e) {}
       }
     };
     document.addEventListener("fullscreenchange", handleFullscreenChange);

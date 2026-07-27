@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { TVChannel } from "@/data/playlist";
 import VideoPlayer from "./VideoPlayer";
 
@@ -50,6 +50,7 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
   const [activeServerIndex, setActiveServerIndex] = useState(0);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const activeChannelRef = useRef<HTMLButtonElement>(null);
   const activeChannel = channels[activeChannelIndex];
   const servers = activeChannel ? (activeChannel.servers || (activeChannel.url ? [{ name: "Server 1", url: activeChannel.url }] : [])) : [];
   const activeServer = servers[activeServerIndex];
@@ -82,6 +83,14 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
       window.sessionStorage.removeItem(STORAGE_KEY);
     }
   }, [channels]);
+
+  useEffect(() => {
+    if (isGuideOpen && activeChannelRef.current) {
+      setTimeout(() => {
+        activeChannelRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+      }, 100);
+    }
+  }, [isGuideOpen]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !activeChannel) return;
@@ -142,7 +151,7 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
       <button
         type="button"
         onClick={() => setIsGuideOpen(true)}
-        className="fixed bottom-5 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2 rounded-md border border-floodlight-400/55 bg-black/70 px-4 py-2.5 text-xs font-bold uppercase text-white shadow-[0_0_24px_rgba(251,176,32,0.42),0_18px_42px_rgba(0,0,0,0.45)] backdrop-blur-md transition before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-floodlight-500/25 before:blur-xl before:content-[''] after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-md after:ring-2 after:ring-floodlight-400/45 after:content-[''] hover:border-floodlight-400 hover:bg-white/10 hover:shadow-[0_0_34px_rgba(251,176,32,0.62),0_18px_42px_rgba(0,0,0,0.45)] xl:bottom-auto xl:left-auto xl:right-0 xl:top-1/2 xl:-translate-y-1/2 xl:translate-x-0 xl:flex-col xl:rounded-l-md xl:border-r-0 xl:px-2.5 xl:py-3 xl:before:rounded-l-md xl:after:rounded-l-md"
+        className="fixed bottom-5 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2 rounded-md border border-floodlight-400/55 bg-black/70 px-4 py-2.5 text-xs font-bold uppercase text-white shadow-[0_0_24px_rgba(251,176,32,0.42),0_18px_42px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-floodlight-500/25 before:blur-xl before:content-[''] after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-md after:ring-2 after:ring-floodlight-400/45 after:content-[''] hover:border-floodlight-400 hover:bg-white/10 hover:shadow-[0_0_34px_rgba(251,176,32,0.62),0_18px_42px_rgba(0,0,0,0.45)] xl:bottom-auto xl:left-auto xl:right-0 xl:top-1/2 xl:-translate-y-1/2 xl:translate-x-[75%] hover:xl:translate-x-0 xl:flex-col xl:rounded-l-md xl:border-r-0 xl:px-2.5 xl:py-3 xl:before:rounded-l-md xl:after:rounded-l-md"
         aria-label="Open channel guide"
       >
         <GuideIcon />
@@ -205,6 +214,7 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
               return (
                 <button
                   key={channel.id}
+                  ref={isActive ? activeChannelRef : null}
                   type="button"
                   onClick={() => selectChannel(index)}
                   className={`group relative flex min-h-14 items-center gap-2.5 overflow-hidden rounded-md border px-2.5 py-2 text-left transition ${
