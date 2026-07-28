@@ -147,6 +147,7 @@ export default function VideoPlayer({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const hlsRef = useRef<any>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
+  const drawerScrollRef = useRef<HTMLDivElement | null>(null);
   const hideTimerRef = useRef<any>(null);
   const liveStartTimeRef = useRef<number | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -186,6 +187,28 @@ export default function VideoPlayer({
       setIsDrawerOpen(true);
     } else if (diff < -50) {
       setIsDrawerOpen(false);
+    }
+  };
+
+  const handleDrawerTouchStart = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    touchStartYRef.current = e.touches[0].clientY;
+    touchCurrentYRef.current = e.touches[0].clientY;
+  };
+
+  const handleDrawerTouchMove = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    touchCurrentYRef.current = e.touches[0].clientY;
+  };
+
+  const handleDrawerTouchEnd = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    const diff = touchStartYRef.current - touchCurrentYRef.current;
+    if (diff < -50) {
+      const scrollEl = drawerScrollRef.current;
+      if (!scrollEl || scrollEl.scrollTop <= 0) {
+        setIsDrawerOpen(false);
+      }
     }
   };
 
@@ -1195,11 +1218,14 @@ export default function VideoPlayer({
 
             <div
               className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : 'translate-y-full h-[75vh]'}`}
-              onTouchStart={(e) => e.stopPropagation()}
-              onTouchMove={(e) => e.stopPropagation()}
-              onTouchEnd={(e) => e.stopPropagation()}
+              onTouchStart={handleDrawerTouchStart}
+              onTouchMove={handleDrawerTouchMove}
+              onTouchEnd={handleDrawerTouchEnd}
             >
-              <div className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10">
+              <div 
+                ref={drawerScrollRef}
+                className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10"
+              >
                 <div className="flex items-center justify-between border-b border-white/5 pb-4">
                   <div className="flex items-center gap-3">
                     {poster && (
