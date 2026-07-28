@@ -606,7 +606,7 @@ const tvlinks: TVChannel[] = [
     title: "Gazi TV",
     logo: "/Gtvhd.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8" },
+      { name: "Server 1", quality: "HD", url: "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/gazibdz.stream/live-orgin/gazibdz.stream/playlist.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://edge01.iptv.digijadoo.net/live/nagorik_tv/chunks.m3u8" }
     ]
   },
@@ -774,6 +774,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "hindi-hits-hd",
+    type: "tv",
+    title: "Hindi Hits HD",
+    logo: "hindi-hits-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://146.59.253.52:8080/hindihitshd/index.m3u8" }
+    ]
+  },
+  {
     id: "mtv",
     type: "tv",
     title: "MTV",
@@ -846,17 +855,17 @@ const tvlinks: TVChannel[] = [
       // { name: "Server 2", quality: "HD", url: "https://live.shamim-iptv.workers.dev/STARJOLSHAHD.m3u8" }
     ]
   },
+  // {
+  //   id: "jalsha-movies-hd",
+  //   type: "tv",
+  //   title: "Jalsha Movies HD",
+  //   logo: "jalsha-movies-hd.png",
+  //   servers: [
+  //     { name: "Server 1", quality: "HD", url: "https://live.shamim-iptv.workers.dev/JALSHAMOVIESHD.m3u8" }
+  //   ]
+  // },
 
   // ── ENG International News ────────────────────────────────
-  {
-    id: "times-of-india",
-    type: "tv",
-    title: "Times Of India",
-    logo: "https://cdn.brandfetch.io/id7ncM9RiX/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1774908336895",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://live.sli.ke/live/npnhm84gz9/master.m3u8" }
-    ]
-  },
   {
     id: "aljazeera",
     type: "tv",
@@ -865,42 +874,6 @@ const tvlinks: TVChannel[] = [
     servers: [
       { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8" },
       { name: "Server 1", quality: "HD", url: "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8" }
-    ]
-  },
-  {
-    id: "wion-news",
-    type: "tv",
-    title: "WION News",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/WION_news_Logo.svg/330px-WION_news_Logo.svg.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8" }
-    ]
-  },
-  {
-    id: "trt-world",
-    type: "tv",
-    title: "TRT World",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/TRT_World_logosu.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://tv-trtworld.medya.trt.com.tr/master.m3u8" }
-    ]
-  },
-  {
-    id: "press-tv",
-    type: "tv",
-    title: "Press TV Iran",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Press_TV_logo.svg/500px-Press_TV_logo.svg.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://live.presstv.ir/hls/presstv_5_482/index.m3u8" }
-    ]
-  },
-  {
-    id: "france-24",
-    type: "tv",
-    title: "France 24",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/France_24_logo_%282013%29.svg/330px-France_24_logo_%282013%29.svg.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_2300.m3u8" }
     ]
   },
   {
@@ -913,48 +886,12 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "global-news",
-    type: "tv",
-    title: "Global News",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Global_News_%282022%29.svg/1920px-Global_News_%282022%29.svg.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/master.m3u8" }
-    ]
-  },
-  {
-    id: "rt-news",
-    type: "tv",
-    title: "RT News",
-    logo: "https://i.ibb.co/M7W5zRy/images.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://rt-glb.rttv.com/live/rtnews/playlist.m3u8" }
-    ]
-  },
-  {
-    id: "iran-international",
-    type: "tv",
-    title: "Iran International",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Iran_International_logo_2021.svg/960px-Iran_International_logo_2021.svg.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://dev-live.livetvstream.co.uk/LS-63503-4/chunklist_b1196000.m3u8" }
-    ]
-  },
-  {
     id: "dw",
     type: "tv",
     title: "DW",
     logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/DW_%28TV%29_Logo_2012.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8" }
-    ]
-  },
-  {
-    id: "10-news-sydney",
-    type: "tv",
-    title: "10 News Sydney",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/10_News_First.svg/1920px-10_News_First.svg.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg02703-leadstory-leadstory-samsungau/playlist.m3u8" }
     ]
   },
   {
@@ -1001,6 +938,89 @@ const tvlinks: TVChannel[] = [
     logo: "/Fox-News.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://fox-foxnewsnow-vizio.amagi.tv/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "times-of-india",
+    type: "tv",
+    title: "Times Of India",
+    logo: "https://cdn.brandfetch.io/id7ncM9RiX/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1774908336895",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live.sli.ke/live/npnhm84gz9/master.m3u8" }
+    ]
+  },
+
+  {
+    id: "wion-news",
+    type: "tv",
+    title: "WION News",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/WION_news_Logo.svg/330px-WION_news_Logo.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8" }
+    ]
+  },
+  {
+    id: "trt-world",
+    type: "tv",
+    title: "TRT World",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/TRT_World_logosu.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://tv-trtworld.medya.trt.com.tr/master.m3u8" }
+    ]
+  },
+  {
+    id: "press-tv",
+    type: "tv",
+    title: "Press TV Iran",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Press_TV_logo.svg/500px-Press_TV_logo.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live.presstv.ir/hls/presstv_5_482/index.m3u8" }
+    ]
+  },
+  {
+    id: "france-24",
+    type: "tv",
+    title: "France 24",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/France_24_logo_%282013%29.svg/330px-France_24_logo_%282013%29.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live.france24.com/hls/live/2037218-b/F24_EN_HI_HLS/master_2300.m3u8" }
+    ]
+  },
+  {
+    id: "global-news",
+    type: "tv",
+    title: "Global News",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Global_News_%282022%29.svg/1920px-Global_News_%282022%29.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://live.corusdigitaldev.com/groupd/live/49a91e7f-1023-430f-8d66-561055f3d0f7/live.isml/master.m3u8" }
+    ]
+  },
+  {
+    id: "rt-news",
+    type: "tv",
+    title: "RT News",
+    logo: "https://i.ibb.co/M7W5zRy/images.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://rt-glb.rttv.com/live/rtnews/playlist.m3u8" },
+      { name: "Server 2", quality: "4k", url: "http://rt-glb.rttv.com/live/rtnews/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "iran-international",
+    type: "tv",
+    title: "Iran International",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Iran_International_logo_2021.svg/960px-Iran_International_logo_2021.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://dev-live.livetvstream.co.uk/LS-63503-4/chunklist_b1196000.m3u8" }
+    ]
+  },
+  {
+    id: "10-news-sydney",
+    type: "tv",
+    title: "10 News Sydney",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/10_News_First.svg/1920px-10_News_First.svg.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg02703-leadstory-leadstory-samsungau/playlist.m3u8" }
     ]
   },
 
