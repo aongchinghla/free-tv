@@ -272,6 +272,26 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "ziggo-sport",
+    type: "tv",
+    title: "Ziggo Sport",
+    logo: "/Ziggo_Sport.png",
+    servers: [
+      { name: "Ziggo Sport 1", quality: "HD", url: "http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/2560/index.m3u8" },
+      { name: "Ziggo Sport 2", quality: "HD", url: "http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/2561/index.m3u8" },
+      { name: "Ziggo Sport 3", quality: "HD", url: "http://6zirt9yx.otttv.pw/iptv/HEGN4VXXQQSYCA/2559/index.m3u8" }
+    ]
+  },
+  {
+    id: "sports-legends",
+    type: "tv",
+    title: "Sports Legends",
+    logo: "sports-legends.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/sportslegends/playlist.m3u8" }
+    ]
+  },
+  {
     id: "dbc-news",
     type: "tv",
     title: "DBC News HD",
@@ -353,13 +373,31 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "cineedge-hd",
+    type: "tv",
+    title: "Cineedge HD",
+    logo: "cineedge-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/cineedge/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "screem",
+    type: "tv",
+    title: "Screem",
+    logo: "screem.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/screem/playlist.m3u8" }
+    ]
+  },
+  {
     id: "star-movies",
     type: "tv",
     title: "Star Movies HD",
     logo: "/star-movies-hd-logo.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://66.102.126.10:8000/play/a021/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://66.102.126.10:8000/play/a020/index.m3u8" },
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://66.102.126.10:8000/play/a020/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://66.102.126.10:8000/play/a021/index.m3u8" },
     ]
   },
   {
@@ -369,6 +407,24 @@ const tvlinks: TVChannel[] = [
     logo: "/cine-nanar.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://145.239.5.177/349/index.m3u8" }
+    ]
+  },
+  {
+    id: "crazy-ex-hd",
+    type: "tv",
+    title: "Crazy Ex HD",
+    logo: "crazy-ex-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crazy_ex/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "delicious-hd",
+    type: "tv",
+    title: "Delicious HD",
+    logo: "delicious-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/delicious/playlist.m3u8" }
     ]
   },
   {
@@ -462,7 +518,87 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/sub_hd_abr/index.m3u8" }
     ]
   },
-
+  {
+    id: "luxel-hd",
+    type: "tv",
+    title: "Luxel HD",
+    logo: "luxel-hd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/luxell/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "crimes",
+    type: "tv",
+    title: "Crimes",
+    logo: "crimes.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crimes/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "true-stories",
+    type: "tv",
+    title: "True Stories",
+    logo: "true-stories.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/truestories/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "intelligence",
+    type: "tv",
+    title: "Intelligence",
+    logo: "intelligence.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/intelligence/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "thunder-er",
+    type: "tv",
+    title: "Thunder Er",
+    logo: "thunder-er.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/thunder/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "originals",
+    type: "tv",
+    title: "Originals",
+    logo: "https://imgur.com/9g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/originals/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "crazy-ex",
+    type: "tv",
+    title: "Crazy Ex",
+    logo: "https://imgur.com/9g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crazy_ex/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "delicious",
+    type: "tv",
+    title: "Delicious",
+    logo: "https://imgur.com/9g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/delicious/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "party-universe",
+    type: "tv",
+    title: "Party Universe",
+    logo: "party-universe.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/partyuniverse/playlist.m3u8" }
+    ]
+  },
 
   // ── Akash Go ──────────────────────────────────────────────
   {
@@ -865,6 +1001,16 @@ const tvlinks: TVChannel[] = [
   //   ]
   // },
 
+  {
+    id: "wild-earth",
+    type: "tv",
+    title: "Wild Earth",
+    logo: "wild-earth.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://wildearth-plex.amagi.tv/master.m3u8" }
+    ]
+  },
+
   // ── ENG International News ────────────────────────────────
   {
     id: "aljazeera",
@@ -920,6 +1066,15 @@ const tvlinks: TVChannel[] = [
     logo: "/Sky-News.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://d39chvnxm26pgp.cloudfront.net/v1/master/72588bff830dec7b26d7cbbf5f3c24928aec5c03/cc-sthen6ms4vxgv-stage/WNSFO/ABR.m3u8" }
+    ]
+  },
+  {
+    id: "cna-news",
+    type: "tv",
+    title: "CNA News",
+    logo: "/cna-news.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8" }
     ]
   },
   {
@@ -1036,33 +1191,6 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "originals",
-    type: "tv",
-    title: "Originals",
-    logo: "https://imgur.com/9g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/originals/playlist.m3u8" }
-    ]
-  },
-  {
-    id: "crazy-ex",
-    type: "tv",
-    title: "Crazy Ex",
-    logo: "https://imgur.com/9g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crazy_ex/playlist.m3u8" }
-    ]
-  },
-  {
-    id: "delicious",
-    type: "tv",
-    title: "Delicious",
-    logo: "https://imgur.com/9g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/delicious/playlist.m3u8" }
-    ]
-  },
-  {
     id: "kids-stars",
     type: "tv",
     title: "Kids Stars",
@@ -1071,33 +1199,7 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/kidsstars/playlist.m3u8" }
     ]
   },
-  {
-    id: "crimes",
-    type: "tv",
-    title: "Crimes",
-    logo: "https://imgur.com/9g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crimes/playlist.m3u8" }
-    ]
-  },
-  {
-    id: "true-stories",
-    type: "tv",
-    title: "True Stories",
-    logo: "https://imgur.com/7g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/truestories/playlist.m3u8" }
-    ]
-  },
-  {
-    id: "intelligence",
-    type: "tv",
-    title: "Intelligence",
-    logo: "https://imgur.com/7g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/intelligence/playlist.m3u8" }
-    ]
-  },
+
   {
     id: "sports-range",
     type: "tv",
@@ -1107,17 +1209,18 @@ const tvlinks: TVChannel[] = [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/sportrange/playlist.m3u8" }
     ]
   },
-  {
-    id: "thunder-er",
-    type: "tv",
-    title: "Thunder Er",
-    logo: "https://imgur.com/7g2kMA.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/thunder/playlist.m3u8" }
-    ]
-  },
+
 
   // ── Kids Channels ──────────────────────────────────────────
+  {
+    id: "usa-nickelodeon",
+    type: "tv",
+    title: "USA Nickelodeon",
+    logo: "usa-nickelodeon.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8" }
+    ]
+  },
   {
     id: "rongeen-tv",
     type: "tv",
