@@ -1195,6 +1195,9 @@ export default function VideoPlayer({
 
             <div
               className={`absolute bottom-0 left-0 right-0 bg-void-950 z-50 rounded-t-2xl transition-transform duration-300 ease-in-out flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] ${isDrawerOpen ? 'translate-y-0 h-[75vh]' : 'translate-y-full h-[75vh]'}`}
+              onTouchStart={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
+              onTouchEnd={(e) => e.stopPropagation()}
             >
               <div className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4">
