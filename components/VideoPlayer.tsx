@@ -314,12 +314,11 @@ export default function VideoPlayer({
       hls = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        startLevel: -1,
         abrEwmaDefaultEstimate: 5000000,
         abrBandWidthFactor: 0.95,
         capLevelToPlayerSize: false,
-        startFragPrefetch: true,
-        testBandwidth: true,
+        startFragPrefetch: false,
+        testBandwidth: false,
         xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
       });
       hlsRef.current = hls;
@@ -337,6 +336,8 @@ export default function VideoPlayer({
         const highestLevel = data.levels.length - 1;
         hls.startLevel = highestLevel;
         hls.currentLevel = highestLevel;
+        hls.nextLevel = highestLevel;
+        hls.loadLevel = highestLevel;
         hls.autoLevelEnabled = false;
         setBuffering(false);
         setLoading(false);
@@ -509,12 +510,11 @@ export default function VideoPlayer({
         hls = new Hls({
           enableWorker: true,
           lowLatencyMode: false,
-          startLevel: -1,
           abrEwmaDefaultEstimate: 5000000,
           abrBandWidthFactor: 0.95,
           capLevelToPlayerSize: false,
-          startFragPrefetch: true,
-          testBandwidth: true,
+          startFragPrefetch: false,
+          testBandwidth: false,
           xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
         });
         hlsRef.current = hls;
@@ -526,6 +526,8 @@ export default function VideoPlayer({
           const highestLevel = data.levels.length - 1;
           hls.startLevel = highestLevel;
           hls.currentLevel = highestLevel;
+          hls.nextLevel = highestLevel;
+          hls.loadLevel = highestLevel;
           hls.autoLevelEnabled = false;
           setLoading(false);
           setBuffering(false);
