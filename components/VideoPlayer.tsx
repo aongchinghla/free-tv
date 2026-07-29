@@ -333,10 +333,11 @@ export default function VideoPlayer({
       mediaRecoveryStage = 0;
 
       hls.on(Hls.Events.MANIFEST_PARSED, (_event: any, data: any) => {
-        // Force highest quality level immediately
+        // Lock to highest quality level — disable ABR so proxy latency can't trick it into low quality
         const highestLevel = data.levels.length - 1;
         hls.startLevel = highestLevel;
         hls.currentLevel = highestLevel;
+        hls.autoLevelEnabled = false;
         setBuffering(false);
         setLoading(false);
         setReconnecting(false);
@@ -521,10 +522,11 @@ export default function VideoPlayer({
         hls.attachMedia(video);
 
         hls.on(Hls.Events.MANIFEST_PARSED, (_event: any, data: any) => {
-          // Force highest quality level immediately
+          // Lock to highest quality level — disable ABR so proxy latency can't trick it into low quality
           const highestLevel = data.levels.length - 1;
           hls.startLevel = highestLevel;
           hls.currentLevel = highestLevel;
+          hls.autoLevelEnabled = false;
           setLoading(false);
           setBuffering(false);
           video.play().catch(() => {
