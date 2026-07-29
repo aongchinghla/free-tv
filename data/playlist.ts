@@ -144,6 +144,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "cbs-sports-network-usa",
+    type: "tv",
+    title: "CBS Sports Network USA",
+    logo: "kkk.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://gpuserver3.tier1streams.com/CBS_SPORTS_NETWORK/index.m3u8" }
+    ]
+  },
+  {
     id: "fifa+",
     type: "tv",
     title: "FIFA +",
@@ -375,6 +384,17 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "my-time",
+    type: "tv",
+    title: "My Time",
+    logo: "https://imgur.com/79g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://mytime-tcl.amagi.tv/playlist.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://mytimeuk-rakuten-samsung.amagi.tv/playlist.m3u8" },
+      { name: "Server 3", quality: "HD", url: "https://appletree-mytimeau-samsung.amagi.tv/playlist.m3u8" }
+    ]
+  },
+  {
     id: "superrix",
     type: "tv",
     title: "Superrix HD",
@@ -417,6 +437,15 @@ const tvlinks: TVChannel[] = [
     logo: "/crazy-ex.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/crazy_ex/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "sony-pix",
+    type: "tv",
+    title: "Sony Pix",
+    logo: "https://imgur.com/79g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/pix_hd_abr/live/sony_pix_hd_720/chunks.m3u8" }
     ]
   },
   {
