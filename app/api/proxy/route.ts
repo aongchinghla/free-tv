@@ -1,12 +1,16 @@
 import { NextRequest } from "next/server";
 
 // Rewrite any URI that looks like a segment or resource URL through our proxy
-function proxyUri(uri: string, base: URL): string {
+function proxyUri(uri: string, base: URL, ua?: string | null): string {
     try {
         const absolute = new URL(uri, base).href;
         // Avoid double-wrapping
         if (absolute.includes("/api/proxy?url=")) return absolute;
-        return `/api/proxy?url=${encodeURIComponent(absolute)}`;
+        let proxyUrl = `/api/proxy?url=${encodeURIComponent(absolute)}`;
+        if (ua) {
+            proxyUrl += `&ua=${encodeURIComponent(ua)}`;
+        }
+        return proxyUrl;
     } catch {
         return uri;
     }
@@ -25,26 +29,27 @@ function guessMediaContentType(url: string, fallback: string): string {
     return fallback || "video/mp2t";
 }
 
-function rewriteM3U8(text: string, base: URL): string {
+function rewriteM3U8(text: string, base: URL, ua?: string | null): string {
     return text
         // Rewrite #EXT-X-MAP:URI="..." attribute
         .replace(/#EXT-X-MAP:URI="([^"]+)"/g, (_m, uri) => {
-            return `#EXT-X-MAP:URI="${proxyUri(uri, base)}"`;
+            return `#EXT-X-MAP:URI="${proxyUri(uri, base, ua)}"`;
         })
         // Rewrite #EXT-X-KEY:...,URI="..." attribute
         .replace(/(#EXT-X-KEY:[^"]*URI=")([^"]+)(")/g, (_m, before, uri, after) => {
-            return `${before}${proxyUri(uri, base)}${after}`;
+            return `${before}${proxyUri(uri, base, ua)}${after}`;
         })
         // Rewrite bare segment lines (lines not starting with #)
         .replace(/^([^#\s].+)$/gm, (line) => {
             const trimmed = line.trim();
             if (!trimmed) return line;
-            return proxyUri(trimmed, base);
+            return proxyUri(trimmed, base, ua);
         });
 }
 
 export async function GET(req: NextRequest) {
     const rawTarget = req.nextUrl.searchParams.get("url");
+    const customUa = req.nextUrl.searchParams.get("ua");
 
     if (!rawTarget) {
         return new Response("Missing url parameter", { status: 400 });
@@ -66,8 +71,7 @@ export async function GET(req: NextRequest) {
         const response = await fetch(target, {
             signal: controller.signal,
             headers: {
-                "User-Agent":
-                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "User-Agent": customUa || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                 "Accept": "*/*",
                 "Accept-Language": "en-US,en;q=0.9",
                 "Connection": "keep-alive",
@@ -100,7 +104,7 @@ export async function GET(req: NextRequest) {
         if (isM3U8) {
             const text = await response.text();
             const base = new URL(response.url);
-            const rewritten = rewriteM3U8(text, base);
+            const rewritten = rewriteM3U8(text, base, customUa);
 
             return new Response(rewritten, {
                 headers: {

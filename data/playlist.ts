@@ -437,6 +437,19 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "mtv-india",
+    type: "tv",
+    title: "MTV India",
+    logo: "https://otapp.store/uploads/tv_image/sm/mtv-india.png",
+    servers: [
+      {
+        name: "Server 1",
+        quality: "HD",
+        url: `/api/proxy?url=${encodeURIComponent("https://madanitv.assadikb.workers.dev/live.php?id=1145&e=.m3u8")}&ua=${encodeURIComponent("oxoo/1.3.9.d (Linux;Android 7.1.2) ExoPlayerLib/2.14.1")}`
+      }
+    ]
+  },
+  {
     id: "shemaroo-bollywood",
     type: "tv",
     title: "Shemaroo Bollywood",
@@ -693,6 +706,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "nrb-tv",
+    type: "tv",
+    title: "NRB TV",
+    logo: "/NRB.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://app.ncare.live/live-orgin/nrb-eu.stream/playlist.m3u8" }
+    ]
+  },
+  {
     id: "banglavision",
     type: "tv",
     title: "Bangla Vision",
@@ -919,15 +941,6 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "mtv",
-    type: "tv",
-    title: "MTV",
-    logo: "/MTV_New_Official.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "http://58.147.140.106:4000/play/a0h4/index.m3u8" }
-    ]
-  },
-  {
     id: "net-geo",
     type: "tv",
     title: "Net Geo",
@@ -1093,6 +1106,42 @@ const tvlinks: TVChannel[] = [
     logo: "/Fox-News.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://fox-foxnewsnow-vizio.amagi.tv/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "news-max-2",
+    type: "tv",
+    title: "News Max 2",
+    logo: "/newsmax.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8" }
+    ]
+  },
+  {
+    id: "city-news-24-7",
+    type: "tv",
+    title: "City News 24/7",
+    logo: "/citynews.jpg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://citynewsregional.akamaized.net/hls/live/1024052/Regional_Live_7/Video-2Mbps.m3u8" }
+    ]
+  },
+  {
+    id: "abc-news-720p",
+    type: "tv",
+    title: "ABC News (720p)",
+    logo: "/ABC_News.svg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://abc-news-dmd-streams-1.akamaized.net/out/v1/701126012d044971b3fa89406a440133/index.m3u8" }
+    ]
+  },
+  {
+    id: "cbs-news-fhd",
+    type: "tv",
+    title: "CBS NEWS FHD",
+    logo: "/CBS_News.svg",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://dai.google.com/linear/hls/event/Sid4xiTQTkCT1SLu6rjUSQ/master.m3u8" }
     ]
   },
   {
