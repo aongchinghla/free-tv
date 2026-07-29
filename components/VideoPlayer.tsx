@@ -314,10 +314,11 @@ export default function VideoPlayer({
       hls = new Hls({
         enableWorker: true,
         lowLatencyMode: false,
-        abrEwmaDefaultEstimate: 5000000,
+        startLevel: -1,
+        abrEwmaDefaultEstimate: 50000000,
         abrBandWidthFactor: 0.95,
         capLevelToPlayerSize: false,
-        startFragPrefetch: false,
+        startFragPrefetch: true,
         testBandwidth: false,
         xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
       });
@@ -510,10 +511,11 @@ export default function VideoPlayer({
         hls = new Hls({
           enableWorker: true,
           lowLatencyMode: false,
-          abrEwmaDefaultEstimate: 5000000,
+          startLevel: -1,
+          abrEwmaDefaultEstimate: 50000000,
           abrBandWidthFactor: 0.95,
           capLevelToPlayerSize: false,
-          startFragPrefetch: false,
+          startFragPrefetch: true,
           testBandwidth: false,
           xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
         });
