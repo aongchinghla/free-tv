@@ -321,6 +321,24 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "sports-range",
+    type: "tv",
+    title: "Sports Range",
+    logo: "/sport-range.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/sportrange/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "flash-guys-hd",
+    type: "tv",
+    title: "Flash Guys HD",
+    logo: "https://tstatic.akash-go.com/cms-ui/images/custom-content/1770378074527.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/flashguys/playlist.m3u8" }
+    ]
+  },
+  {
     id: "cricket-gold",
     type: "tv",
     title: "CR | Cricket Gold",
@@ -993,7 +1011,7 @@ const tvlinks: TVChannel[] = [
   {
     id: "aljazeera",
     type: "tv",
-    title: "Al Jazeera",
+    title: "Al Jazeera HD",
     logo: "https://s3.aynaott.com/storage/5d707a103f48d8f9f1634f1b70e2ecdf",
     servers: [
       { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8" },
@@ -1202,13 +1220,12 @@ const tvlinks: TVChannel[] = [
     ]
   },
 
-
-  // ── New Channels ──────────────────────────────────────────
+  // ── Kids Channels ──────────────────────────────────────────
   {
     id: "nikki",
     type: "tv",
     title: "Nikki",
-    logo: "https://imgur.com/9g2kMA.png",
+    logo: "/nikky.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/nikky/playlist.m3u8" }
     ]
@@ -1217,24 +1234,11 @@ const tvlinks: TVChannel[] = [
     id: "kids-stars",
     type: "tv",
     title: "Kids Stars",
-    logo: "https://imgur.com/9g2kMA.png",
+    logo: "/kids-stars.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/kidsstars/playlist.m3u8" }
     ]
   },
-
-  {
-    id: "sports-range",
-    type: "tv",
-    title: "Sports Range",
-    logo: "/sport-range.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/sportrange/playlist.m3u8" }
-    ]
-  },
-
-
-  // ── Kids Channels ──────────────────────────────────────────
   {
     id: "usa-nickelodeon",
     type: "tv",
@@ -1308,12 +1312,48 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "buddystar-hd",
+    type: "tv",
+    title: "BuddyStar HD",
+    logo: "https://tstatic.akash-go.com/cms-ui/images/custom-content/1770379038530.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/buddystar/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "joy",
+    type: "tv",
+    title: "Joy",
+    logo: "https://tstatic.akash-go.com/cms-ui/images/custom-content/1770378874717.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/joy/playlist.m3u8" }
+    ]
+  },
+  {
     id: "zoo-moo",
     type: "tv",
     title: "ZOO MOO",
     logo: "https://static.wikia.nocookie.net/logopedia/images/4/44/ZooMoo_Kids_2020.svg",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://zoomoo-samsungau.amagi.tv/playlist720p.m3u8" }
+    ]
+  },
+  {
+    id: "smarty",
+    type: "tv",
+    title: "Smarty",
+    logo: "https://tstatic.akash-go.com/cms-ui/images/custom-content/1770381107924.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/smarty/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "lucky-family",
+    type: "tv",
+    title: "Lucky Family",
+    logo: "https://tstatic.akash-go.com/cms-ui/images/custom-content/1770381248531.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/luckyfamily/playlist.m3u8" }
     ]
   },
   {
