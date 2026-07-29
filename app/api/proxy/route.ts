@@ -29,42 +29,20 @@ function guessMediaContentType(url: string, fallback: string): string {
     return fallback || "video/mp2t";
 }
 
-function isMediaSegment(uri: string): boolean {
-    const path = uri.split("?")[0].toLowerCase();
-    return (
-        path.endsWith(".ts") ||
-        path.endsWith(".aac") ||
-        path.endsWith(".mp4") ||
-        path.endsWith(".m4s") ||
-        path.endsWith(".fmp4") ||
-        path.endsWith(".m4a") ||
-        path.endsWith(".mp3")
-    );
-}
-
 function rewriteM3U8(text: string, base: URL, ua?: string | null): string {
     return text
-        // Rewrite #EXT-X-MAP:URI="..." attribute — always proxy (init segment)
+        // Rewrite #EXT-X-MAP:URI="..." attribute
         .replace(/#EXT-X-MAP:URI="([^"]+)"/g, (_m, uri) => {
             return `#EXT-X-MAP:URI="${proxyUri(uri, base, ua)}"`;
         })
-        // Rewrite #EXT-X-KEY:...,URI="..." attribute — always proxy (encryption keys)
+        // Rewrite #EXT-X-KEY:...,URI="..." attribute
         .replace(/(#EXT-X-KEY:[^"]*URI=")([^"]+)(")/g, (_m, before, uri, after) => {
             return `${before}${proxyUri(uri, base, ua)}${after}`;
         })
-        // Rewrite bare segment/playlist lines (lines not starting with #)
+        // Rewrite bare segment lines (lines not starting with #)
         .replace(/^([^#\s].+)$/gm, (line) => {
             const trimmed = line.trim();
             if (!trimmed) return line;
-            // Media segments (.ts, .mp4, etc.) — fetch directly, skip proxy
-            if (isMediaSegment(trimmed)) {
-                try {
-                    return new URL(trimmed, base).href;
-                } catch {
-                    return trimmed;
-                }
-            }
-            // Sub-playlists (.m3u8) — still proxy so we can rewrite their segments too
             return proxyUri(trimmed, base, ua);
         });
 }
