@@ -387,7 +387,7 @@ const tvlinks: TVChannel[] = [
     id: "my-time",
     type: "tv",
     title: "My Time",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "/my-time.jpg",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://mytime-tcl.amagi.tv/playlist.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://mytimeuk-rakuten-samsung.amagi.tv/playlist.m3u8" },
@@ -443,7 +443,7 @@ const tvlinks: TVChannel[] = [
     id: "sony-pix",
     type: "tv",
     title: "Sony Pix",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "/sony-pix.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/pix_hd_abr/live/sony_pix_hd_720/chunks.m3u8" }
     ]
