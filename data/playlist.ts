@@ -198,7 +198,8 @@ const tvlinks: TVChannel[] = [
     title: "Real Madrid TV",
     logo: "/real-madrid.jpg",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/master.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/master.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/bitrate_3.m3u8" }
     ]
   },
   // {
@@ -320,15 +321,6 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
-    id: "live-football",
-    type: "tv",
-    title: "Live FOOTBALL",
-    logo: "https://bugsfreeweb.github.io/LiveTVCollector/BugsfreeLogo/default-logo.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://rmtv.akamaized.net/hls/live/2043154/rmtv-en-web/bitrate_3.m3u8" }
-    ]
-  },
-  {
     id: "cricket-gold",
     type: "tv",
     title: "CR | Cricket Gold",
@@ -429,15 +421,6 @@ const tvlinks: TVChannel[] = [
         quality: "HD",
         url: `/api/proxy?url=${encodeURIComponent("https://madanitv.assadikb.workers.dev/live.php?id=1145&e=.m3u8")}&ua=${encodeURIComponent("oxoo/1.3.9.d (Linux;Android 7.1.2) ExoPlayerLib/2.14.1")}`
       }
-    ]
-  },
-  {
-    id: "nhk-world",
-    type: "tv",
-    title: "NHK World",
-    logo: "/nhk-wrold.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "http://103.175.73.12:8080/live/417/417_0.m3u8" }
     ]
   },
   {
@@ -1043,6 +1026,15 @@ const tvlinks: TVChannel[] = [
     servers: [
       { name: "Server 1", quality: "HD", url: "https://0472.org/hls/cgtn.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/cgtn.stream/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "nhk-world",
+    type: "tv",
+    title: "NHK World",
+    logo: "/nhk-wrold.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://103.175.73.12:8080/live/417/417_0.m3u8" }
     ]
   },
   {
