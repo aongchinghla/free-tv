@@ -339,6 +339,15 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "ten-cricket",
+    type: "tv",
+    title: "Ten Cricket",
+    logo: "https://i.postimg.cc/0yzwt46Q/20241126-220214.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://s2.itcnbd.live/server-2/stream/ten_cricket.m3u8" }
+    ]
+  },
+  {
     id: "cricket-gold",
     type: "tv",
     title: "CR | Cricket Gold",
@@ -530,6 +539,15 @@ const tvlinks: TVChannel[] = [
     logo: "/SONY_MAX.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/max_hd_abr/live/max_hd_720/chunks.m3u8" }
+    ]
+  },
+  {
+    id: "sony-max-2",
+    type: "tv",
+    title: "Sony Max 2",
+    logo: "https://i.postimg.cc/hP59QSrm/20240825_075205.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.bd/live/max_2_abr/live/max_2_720/chunks.m3u8" }
     ]
   },
   {
@@ -1327,6 +1345,24 @@ const tvlinks: TVChannel[] = [
     logo: "https://tstatic.akash-go.com/cms-ui/images/custom-content/1770378874717.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://nomawnoijl.gpcdn.net/akash/joy/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "pogo",
+    type: "tv",
+    title: "Pogo",
+    logo: "https://i.postimg.cc/C1s5Hf5P/20240823_021444.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/pogo_sd_abr/index.m3u8" }
+    ]
+  },
+  {
+    id: "duronto-tv",
+    type: "tv",
+    title: "Duronto TV",
+    logo: "https://i.postimg.cc/0QRKCsfQ/20240823_020937.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://tvsen6.aynaott.com/6xyZ3N4oHv2KBJdB6W4p/index.m3u8" }
     ]
   },
   {

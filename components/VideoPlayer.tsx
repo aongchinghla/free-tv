@@ -315,8 +315,11 @@ export default function VideoPlayer({
         enableWorker: true,
         lowLatencyMode: false,
         startLevel: -1,
+        abrEwmaDefaultEstimate: 5000000,
+        abrBandWidthFactor: 0.95,
+        capLevelToPlayerSize: false,
         startFragPrefetch: true,
-        testBandwidth: false,
+        testBandwidth: true,
         xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
       });
       hlsRef.current = hls;
@@ -329,7 +332,11 @@ export default function VideoPlayer({
       networkRetryCount = 0;
       mediaRecoveryStage = 0;
 
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      hls.on(Hls.Events.MANIFEST_PARSED, (_event: any, data: any) => {
+        // Force highest quality level immediately
+        const highestLevel = data.levels.length - 1;
+        hls.startLevel = highestLevel;
+        hls.currentLevel = highestLevel;
         setBuffering(false);
         setLoading(false);
         setReconnecting(false);
@@ -502,15 +509,22 @@ export default function VideoPlayer({
           enableWorker: true,
           lowLatencyMode: false,
           startLevel: -1,
+          abrEwmaDefaultEstimate: 5000000,
+          abrBandWidthFactor: 0.95,
+          capLevelToPlayerSize: false,
           startFragPrefetch: true,
-          testBandwidth: false,
+          testBandwidth: true,
           xhrSetup: (xhr: XMLHttpRequest) => { xhr.withCredentials = false; },
         });
         hlsRef.current = hls;
         hls.loadSource(effectiveSrc);
         hls.attachMedia(video);
 
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        hls.on(Hls.Events.MANIFEST_PARSED, (_event: any, data: any) => {
+          // Force highest quality level immediately
+          const highestLevel = data.levels.length - 1;
+          hls.startLevel = highestLevel;
+          hls.currentLevel = highestLevel;
           setLoading(false);
           setBuffering(false);
           video.play().catch(() => {
@@ -626,7 +640,7 @@ export default function VideoPlayer({
           if (screen.orientation && (screen.orientation as any).unlock) {
             (screen.orientation as any).unlock();
           }
-        } catch (e) {}
+        } catch (e) { }
       }
     };
     document.addEventListener("fullscreenchange", handleFullscreenChange);
@@ -815,22 +829,22 @@ export default function VideoPlayer({
   }
 
   const containerClasses = isMobileFullscreen
-    ? (isPortrait 
-      ? "fixed z-[9999] bg-black flex flex-col justify-center overflow-hidden" 
+    ? (isPortrait
+      ? "fixed z-[9999] bg-black flex flex-col justify-center overflow-hidden"
       : "fixed inset-0 z-[9999] bg-black flex flex-col justify-center w-full h-full overflow-hidden")
     : `relative w-full overflow-hidden bg-black shadow-2xl shadow-black/50${!controlsVisible ? " cursor-none" : ""}`;
 
   const containerStyle = isMobileFullscreen
     ? (isPortrait ? {
-        width: '100vh',
-        height: '100vw',
-        transform: 'rotate(90deg)',
-        transformOrigin: 'center center',
-        top: '50%',
-        left: '50%',
-        marginTop: '-50vw',
-        marginLeft: '-50vh'
-      } : {})
+      width: '100vh',
+      height: '100vw',
+      transform: 'rotate(90deg)',
+      transformOrigin: 'center center',
+      top: '50%',
+      left: '50%',
+      marginTop: '-50vw',
+      marginLeft: '-50vh'
+    } : {})
     : { aspectRatio: "16/9" };
 
   return (
@@ -1222,7 +1236,7 @@ export default function VideoPlayer({
               onTouchMove={handleDrawerTouchMove}
               onTouchEnd={handleDrawerTouchEnd}
             >
-              <div 
+              <div
                 ref={drawerScrollRef}
                 className="p-4 space-y-6 overflow-y-auto custom-scrollbar flex-1 pb-10"
               >
