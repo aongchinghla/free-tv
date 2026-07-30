@@ -273,6 +273,25 @@ const tvlinks: TVChannel[] = [
     ]
   },
   {
+    id: "fox-sports-501-hd",
+    type: "tv",
+    title: "Fox Sports 501 HD",
+    logo: "https://imgur.com/79g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://raw.githubusercontent.com/stablesports711-hue/stable-sports-movie/refs/heads/main/IPTV/FOX501HD.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://raw.githubusercontent.com/IPTVFlixBD/OopsTv/refs/heads/main/bn-ch-1/1104678.m3u8" }
+    ]
+  },
+  {
+    id: "unite8-sports-1-hd",
+    type: "tv",
+    title: "UNITE8 SPORTS 1 HD",
+    logo: "https://imgur.com/79g2kMA.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://yowaimo.in/Sflex-ArtlPVT0719/ZEE_CAFE_HD.m3u8" }
+    ]
+  },
+  {
     id: "red-bull",
     type: "tv",
     title: "Red Bull TV",
