@@ -43,7 +43,7 @@ const tvlinks: TVChannel[] = [
     logo: "/somoy_tv.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8" },
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1713/output/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8" },
     ]
   },
   {
@@ -176,9 +176,9 @@ const tvlinks: TVChannel[] = [
     title: "BTV",
     logo: "https://ssl.com.bd/sites/default/files/BTV%20Logo%20Gallery.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1725/output/index.m3u8" },
+      { name: "Server 1", quality: "HD", url: "http://103.165.93.31:8095/btv/tracks-v1a1/mono.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.165.93.31:8095/btv/tracks-v1a1/mono.m3u8" },
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8" }
+      { name: "server 3", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1709/output/1709.m3u8" }
     ]
   },
   {
@@ -276,7 +276,7 @@ const tvlinks: TVChannel[] = [
     id: "fox-sports-501-hd",
     type: "tv",
     title: "Fox Sports 501 HD",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "https://imgurA.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://raw.githubusercontent.com/stablesports711-hue/stable-sports-movie/refs/heads/main/IPTV/FOX501HD.m3u8" },
       { name: "Server 2", quality: "HD", url: "https://raw.githubusercontent.com/IPTVFlixBD/OopsTv/refs/heads/main/bn-ch-1/1104678.m3u8" }
@@ -286,7 +286,7 @@ const tvlinks: TVChannel[] = [
     id: "unite8-sports-1-hd",
     type: "tv",
     title: "UNITE8 SPORTS 1 HD",
-    logo: "https://imgur.com/79g2kMA.png",
+    logo: "/un8.webp",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://yowaimo.in/Sflex-ArtlPVT0719/ZEE_CAFE_HD.m3u8" }
     ]
@@ -336,7 +336,7 @@ const tvlinks: TVChannel[] = [
     title: "CHANNEL 1 4K",
     logo: "/Channel_1_Logo.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1702/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/channel1bd.stream/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -687,7 +687,7 @@ const tvlinks: TVChannel[] = [
     title: "Channel 24",
     logo: "https://dl.dropbox.com/s/puf12xv5flgbnz5/channel24_bd.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1703/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/channel_24_abr/index.m3u8" },
     ]
   },
   {
@@ -696,7 +696,7 @@ const tvlinks: TVChannel[] = [
     title: "Star News",
     logo: "/Star_News_logo.webp",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1710/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/starnewsbd.stream/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -705,7 +705,7 @@ const tvlinks: TVChannel[] = [
     title: "Independent TV",
     logo: "https://dl.dropbox.com/s/7xwwb8hetz3w8rp/independent_tv.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1704/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/independent-8-org.stream/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -714,7 +714,8 @@ const tvlinks: TVChannel[] = [
     title: "Ekattor TV",
     logo: "https://s4.gifyu.com/images/imagea02f4314e761661d.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1705/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/ekattor_tv_abr/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "http://103.165.93.31:8095/ekattorTv/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -723,7 +724,7 @@ const tvlinks: TVChannel[] = [
     title: "Jamuna TV",
     logo: "https://dl.dropbox.com/s/k7z1dsec1jfjbkn/jamuna_tv_bd.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1701/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/jamuna_tv_abr/index.m3u8" }
     ]
   },
   {
@@ -732,7 +733,16 @@ const tvlinks: TVChannel[] = [
     title: "ATN NEWS",
     logo: "https://dl.dropbox.com/s/4ldi1dp09s8o6bm/atn_news_bd.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1706/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnws-sg.stream/tracks-v1a1/mono.m3u8" }
+    ]
+  },
+  {
+    id: "atn-bangla",
+    type: "tv",
+    title: "ATN BANGLA",
+    logo: "https://dl.dropbox.com/s/4ldi1dp09s8o6bm/atn_news_bd.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/atnbd-8-org.stream/playlist.m3u8" }
     ]
   },
   {
@@ -741,7 +751,7 @@ const tvlinks: TVChannel[] = [
     title: "NAGORIK TV HD",
     logo: "Nagorik.webp",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://198.195.239.50:8095/nagorik/tracks-v1a1/mono.m3u8" },
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://103.151.61.12/Nagorik_TV/video.m3u8" },
       { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://103.163.117.83:8063/ch8/tracks-v1/index.fmp4.m3u8" }
     ]
   },
@@ -751,7 +761,7 @@ const tvlinks: TVChannel[] = [
     title: "Maasranga TV",
     logo: "https://maasranga.tv/wp-content/uploads/2023/11/cropped-Logo-for-website-1.jpg",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1722/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://mtv.sunplex.live/MAASRANGA/index.m3u8" }
     ]
   },
   {
@@ -760,7 +770,7 @@ const tvlinks: TVChannel[] = [
     title: "NTV",
     logo: "https://www.ntvbd.com/sites/default/files/aggregator/2020/02/17/ntv-channel_0.jpg",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1716/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "http://103.165.93.31:8095/ntv/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -769,7 +779,7 @@ const tvlinks: TVChannel[] = [
     title: "Channel I",
     logo: "https://dl.dropbox.com/s/ul1hoiovemyyhp8/channel_i.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1723/output/index.m3u8" }
     ]
   },
   {
@@ -787,7 +797,7 @@ const tvlinks: TVChannel[] = [
     title: "Bangla Vision",
     logo: "https://www.bvnews24.com/media/common/newbvlogo.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1715/output/1715-audio_113452_eng=113200-video=1692000.m3u8" }]
+      { name: "Server 1", quality: "HD", url: "http://103.165.93.31:8095/banglaVision/tracks-v1a1/mono.m3u8" }]
   },
   {
     id: "srk-tv",
@@ -795,7 +805,7 @@ const tvlinks: TVChannel[] = [
     title: "SRK TV",
     logo: "/srk_tv.jpg",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://srknowapp.ncare.live/srktvhlswodrm/srktv.stream/playlist.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://srknowapp.ncare.live/srktvhlswodrm/srktv.stream/playlist.m3u8" }
     ]
   },
   {
@@ -803,7 +813,7 @@ const tvlinks: TVChannel[] = [
     type: "tv",
     title: "Ekushey TV",
     logo: "https://i.postimg.cc/C15wr1RW/Ekushey-Television-Logo-svg.png",
-    servers: [{ name: "Akash Go", quality: "HD", url: "https://ekusheyserver.com/hls-live/livepkgr/_definst_/liveevent/livestream3.m3u8" }
+    servers: [{ name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ekusheytv-8-org.stream/playlist.m3u8" }
     ]
   },
   {
@@ -812,8 +822,7 @@ const tvlinks: TVChannel[] = [
     title: "Deepto TV",
     logo: "/deepto-tv-logo.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8" },
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1711/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://byphdgllyk.gpcdn.net/hls/deeptotv/0_1/index.m3u8" }
     ]
   },
   {
@@ -822,7 +831,7 @@ const tvlinks: TVChannel[] = [
     title: "Jago News24",
     logo: "/jago.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://app.ncare.live/live-orgin/jagonews24.stream/playlist.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app.ncare.live/live-orgin/jagonews24.stream/playlist.m3u8" }
     ]
   },
   {
@@ -841,7 +850,7 @@ const tvlinks: TVChannel[] = [
     title: "SA TV",
     logo: "https://cdn.brandfetch.io/idetEPdN4G/w/329/h/329/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1773065739783",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1720/output/1720-audio_113502_eng=113200-video=3224800.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/satvoff5666.stream/playlist.m3u8" }
     ]
   },
   {
@@ -850,7 +859,7 @@ const tvlinks: TVChannel[] = [
     title: "Desh TV",
     logo: "https://upload.wikimedia.org/wikipedia/commons/2/25/Desh_tv_logo.jpg",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1724/output/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/deshtv.stream/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -859,7 +868,7 @@ const tvlinks: TVChannel[] = [
     title: "My TV",
     logo: "https://dl.dropbox.com/s/jjr5835pbth49tm/my_tv_bd.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mytv-up-off.stream/tracks-v1a1/mono.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mytv-up-off.stream/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -868,7 +877,7 @@ const tvlinks: TVChannel[] = [
     title: "Mohona TV",
     logo: "https://mohona.tv/wp-content/uploads/2026/02/Mohona_tv_Logo.svg_-scaled.png",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mohonatv.stream/tracks-v1a1/mono.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/mohona_tv_abr/index.m3u8" }
     ]
   },
   {
@@ -878,7 +887,7 @@ const tvlinks: TVChannel[] = [
     logo: "https://rajdhani.tv/assets/images/logo-3.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "https://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8" },
-      { name: "Akash Go", quality: "HD", url: "http://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8" }
+      { name: "Server 2", quality: "HD", url: "http://stream.shariarsuvo.com/hls5/rajdhanicable.m3u8" }
     ]
   },
   {
@@ -914,7 +923,8 @@ const tvlinks: TVChannel[] = [
     title: "Asian TV",
     logo: "/asian-tv.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://mtlivestream.com/hls/asian/ytlive/index.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://stream.ottplus.live/live/asian_tv_abr/index.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/asian-test-sample-ok-d.stream/tracks-v1a1/mono.m3u8" }
     ]
   },
   {
@@ -941,7 +951,26 @@ const tvlinks: TVChannel[] = [
     title: "Bijoy TV",
     logo: "/bijoy-tv.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "https://live.shamim-iptv.workers.dev/bijoytv.m3u8" }
+      { name: "Server 1", quality: "HD", url: "https://live.shamim-iptv.workers.dev/bijoytv.m3u8" },
+      { name: "Server 2", quality: "HD", url: "https://stream.ottplus.live/live/bijoy_tv_abr/index.m3u8" }
+    ]
+  },
+  {
+    id: "news-21-tv",
+    type: "tv",
+    title: "NEWS 21 TV",
+    logo: "",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "http://103.190.133.68:1935/news21live/live/playlist.m3u8" }
+    ]
+  },
+  {
+    id: "deshi-tv",
+    type: "tv",
+    title: "Deshi TV",
+    logo: "https://www.flixj.com/upload/images/TV/DeshTV24-BanglaLogo.png",
+    servers: [
+      { name: "Server 1", quality: "HD", url: "https://deshitv.deshitv24.net/live/myStream/playlist.m3u8" }
     ]
   },
   {
@@ -960,15 +989,6 @@ const tvlinks: TVChannel[] = [
     logo: "https://i.ibb.co/0rPdpW9/MB-TV.jpg",
     servers: [
       { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://alvetv.com/moviebanglatv/8080/index.m3u8" }
-    ]
-  },
-  {
-    id: "deshi-tv",
-    type: "tv",
-    title: "Deshi TV",
-    logo: "https://www.flixj.com/upload/images/TV/DeshTV24-BanglaLogo.png",
-    servers: [
-      { name: "Server 1", quality: "HD", url: "https://deshitv.deshitv24.net/live/myStream/playlist.m3u8" }
     ]
   },
   {
@@ -1080,7 +1100,6 @@ const tvlinks: TVChannel[] = [
     title: "Al Jazeera HD",
     logo: "https://s3.aynaott.com/storage/5d707a103f48d8f9f1634f1b70e2ecdf",
     servers: [
-      { name: "Akash Go", quality: "HD", url: "https://owrcovcrpy.gpcdn.net/bpk-tv/1721/output/index.m3u8" },
       { name: "Server 1", quality: "HD", url: "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8" }
     ]
   },
