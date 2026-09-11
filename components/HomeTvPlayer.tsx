@@ -136,7 +136,7 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
           <VideoPlayer
             id={activeChannel.id}
             src={activeServer.url}
-            poster={activeChannel.logo}
+            poster={activeChannel.logo || undefined}
             servers={servers}
             activeIndex={activeServerIndex}
             onSelectServer={setActiveServerIndex}
@@ -230,11 +230,17 @@ export default function HomeTvPlayer({ channels }: { channels: TVChannel[] }) {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="flex h-10 w-14 shrink-0 items-center justify-center overflow-hidden rounded bg-white p-1.5 shadow-sm shadow-black/20">
-                    <img
-                      src={channel.logo}
-                      alt=""
-                      className="h-full w-full object-contain"
-                    />
+                    {channel.logo ? (
+                      <img
+                        src={channel.logo}
+                        alt={channel.title || ""}
+                        className="h-full w-full object-contain"
+                      />
+                    ) : (
+                      <span className="font-display text-xs font-bold text-black/60">
+                        {channel.title.slice(0, 3).toUpperCase()}
+                      </span>
+                    )}
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-display text-lg leading-none tracking-wide">

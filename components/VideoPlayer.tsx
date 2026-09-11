@@ -961,7 +961,7 @@ export default function VideoPlayer({
             autoPlay
             playsInline
             muted={muted}
-            poster={poster}
+            poster={poster || undefined}
             onClick={handleVideoClick}
             onPlay={() => setPaused(false)}
             onPause={() => setPaused(true)}
@@ -973,7 +973,7 @@ export default function VideoPlayer({
             className={isMobileFullscreen ? "w-full h-full object-contain" : "absolute inset-0 h-full w-full object-contain"}
           />
 
-          {poster && loading && !error && (
+          {Boolean(poster) && loading && !error && (
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black">
               <img
                 src={poster}
@@ -1248,7 +1248,7 @@ export default function VideoPlayer({
               >
                 <div className="flex items-center justify-between border-b border-white/5 pb-4">
                   <div className="flex items-center gap-3">
-                    {poster && (
+                    {poster ? (
                       <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded bg-white p-1">
                         <img
                           src={poster}
@@ -1256,7 +1256,7 @@ export default function VideoPlayer({
                           className="max-h-full max-w-full object-contain"
                         />
                       </span>
-                    )}
+                    ) : null}
                     <div>
                       <h2 className="font-display text-lg tracking-wide text-white uppercase">
                         {channels && activeChannelIndex !== undefined && channels[activeChannelIndex]
@@ -1332,11 +1332,17 @@ export default function VideoPlayer({
                               }`}
                           >
                             <span className="flex h-9 w-12 shrink-0 items-center justify-center overflow-hidden rounded bg-white p-1.5">
-                              <img
-                                src={channel.logo}
-                                alt=""
-                                className="h-full w-full object-contain"
-                              />
+                              {channel.logo ? (
+                                <img
+                                  src={channel.logo}
+                                  alt={channel.title || ""}
+                                  className="h-full w-full object-contain"
+                                />
+                              ) : (
+                                <span className="font-display text-[10px] font-bold text-black/60">
+                                  {channel.title.slice(0, 3).toUpperCase()}
+                                </span>
+                              )}
                             </span>
                             <span className="font-display text-xs tracking-wide truncate">
                               {channel.title}

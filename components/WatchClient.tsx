@@ -32,8 +32,8 @@ export default function WatchClient({ match }: { match: TVChannel }) {
       <VideoPlayer
         key={activeServer?.url}
         id={match.id}
-        src={activeServer?.url}
-        poster={match.logo}
+        src={activeServer?.url || ""}
+        poster={match.logo || undefined}
         servers={servers}
         activeIndex={activeIndex}
         onSelectServer={setActiveIndex}

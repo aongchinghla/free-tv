@@ -959,7 +959,7 @@ const tvlinks: TVChannel[] = [
     id: "news-21-tv",
     type: "tv",
     title: "NEWS 21 TV",
-    logo: "",
+    logo: "https://news21bangla.tv/wp-content/uploads/2025/07/news21-1.png",
     servers: [
       { name: "Server 1", quality: "HD", url: "http://103.190.133.68:1935/news21live/live/playlist.m3u8" }
     ]
