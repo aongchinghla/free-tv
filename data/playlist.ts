@@ -268,8 +268,7 @@ const tvlinks: TVChannel[] = [
     title: "Star Sports Select",
     logo: "/star-sports-select.png",
     servers: [
-      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/sspts1/index.m3u8" },
-      { name: "Server 2", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" },
+      { name: "Server 1", quality: "HD", url: "/api/proxy?url=http://tvsen7.aynascope.net/ssport2hd/index.m3u8" }
     ]
   },
   {
